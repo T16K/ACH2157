@@ -18,4 +18,20 @@ Para ter uma melhor compreensão sobre [hábitos](https://sites.google.com/view/
 
 ## Como funciona?
 
-[MicroPython](#MicroPython.md)
+Para esta seção estamos dividindo-a em duas partes, a primeira será dos objetos físicos que serão responsáveis por avaliar o contexto do usuário, e a segunda que são os programas para interpretar esse contexto e devolver uma decisão.
+
+(esquema)[../img/esquema.md]
+
+### Os Componentes
+
+Para os componentes decidimos usar:
+- *ESP32* 
+- Sensor Solar 
+- Bateria.
+
+### Os *Softwares*
+
+Os *softwares* que serão utilizados:
+- [*MicroPython*](MicroPython.md)
+- [Aplicativo](http://appinventor.mit.edu/)
+- [*IoT analytics*](https://thingspeak.com/)
