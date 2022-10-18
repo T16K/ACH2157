@@ -20,7 +20,7 @@ Para ter uma melhor compreensão sobre [hábitos](https://sites.google.com/view/
 
 Para esta seção estamos dividindo-a em duas partes, a primeira será dos objetos físicos que serão responsáveis por avaliar o contexto do usuário, e a segunda que são os programas para interpretar esse contexto e devolver uma decisão.
 
-[esquema](../../img/esquema.png)
+![esquema](../../img/esquema.png)
 
 ### Os Componentes
 
