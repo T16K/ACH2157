@@ -1,0 +1,149 @@
+# ACH2157
+
+</br>
+
+- Aulas de [Computação Física e Aplicações](https://github.com/FNakano/CFA)
+
+</br>
+
+## Como configurar o *MicroPython* em sua placa de desenvolvimento *ESP32* para executar aplicativos *Python*
+
+</br>
+
+- Informações gerais sobre a porta [*ESP32*](https://docs.micropython.org/en/latest/esp32/general.html)
+
+</br>
+
+### Baixando uma cópia do *MicroPython* para o seu *ESP32*
+
+</br>
+
+A primeira coisa que você precisa fazer é baixar o *firmware MicroPython* (arquivo .bin) para carregar em seu dispositivo *ESP32*. Você pode baixá-lo na [página de downloads do *MicroPython*](https://micropython.org/download/esp32/).
+
+</br>
+
+### Colocando o *MicroPython* no *ESP32*
+
+</br>
+
+Com isso, precisamos ter permissão para acessar a porta ``` \dev\ttyUSB0 ```,
+```
+sudo chmod 666 /dev/ttyUSB0 
+```
+mas se nós desconectarmos o dispositivo USB e reconectarmos ele, precisaremos refazer o comando.
+
+</br>
+
+Depois que o computador for capaz de se comunicar com sua placa de desenvolvimento *ESP32*, instale o [```esptool```](https://github.com/espressif/esptool) com,
+```
+pip install esptool
+```
+
+</br>
+
+Então agora apagamos tudo do *flash* da sua placa *ESP32* com o seguinte comando:
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
+```
+A partir daí, programe o firmware a partir do endereço 0x1000:
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 'nome_do_arquivo'.bin
+```
+Quando o comando for concluído, você poderá executar códigos Python em sua placa ESP32 via MicroPython.
+
+</br>
+
+### Verificando sua configuração do *MicroPython* em sua placa de desenvolvimento *ESP32*
+
+</br>
+
+Então, como podemos saber se o *MicroPython* está corretamente instalado em nossa placa de desenvolvimento *ESP32*?
+
+Quando o *MicroPython* estiver corretamente instalado, poderemos acessar o ```REPL``` em série com um programa de emulador de terminal.
+
+Por exemplo, você pode usar o comando de tela se estiver o ```rshell``` instalado:
+```
+rshell -p /dev/tty.ttyUSB0 -b 115200 --editor nvim 
+repl
+```
+Se você quiser ver o *MicroPython*, então você pode pressionar ```Ctrl-D``` para iniciar uma reinicialização suave. Neste momento, você pode tentar executar alguns códigos *Python* no ```REPL```.
+
+</br>
+
+## Como configurar o *MicroPython* [*WebREPL*](https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) em sua placa de desenvolvimento *ESP32*
+
+</br>
+
+Agora, você poderá habilitar o *WebREPL* em sua placa *ESP32*. Para isso, digite o seguinte código no prompt ```REPL```:
+```
+import webrepl_setup
+```
+Depois de fazê-lo, siga as instruções para ativar o *WebREPL* em sua placa *ESP32*.
+
+</br>
+
+### Conectando sua placa ESP32 à sua rede de roteador
+
+</br>
+
+Primeiro, use ```rshell``` para se conectar à sua placa *ESP32* via conexão serial:
+```
+rshell -p /dev/tty.SLAB_USBtoUART -b 115200 --editor nvim
+```
+Quando você fizer isso, você poderá editar arquivos no quadro *ESP32* com o editor ```neovim```.
+Uma vez que o ```rshell``` é iniciado, execute o seguinte comando para editar ```boot.py``` na placa *ESP32*:
+```
+edit /pyboard/boot.py
+```
+Quando o seu editor ```neovim``` carregar ```boot.py```, edite-o para parecer com o seguinte:
+```python
+def do_connect(ssid, pwd):
+    import network
+    sta_if = network.WLAN(network.STA_IF)
+    if not sta_if.isconnected():
+        print('connecting to network...')
+        sta_if.active(True)
+        sta_if.connect(ssid, pwd)
+        while not sta_if.isconnected():
+            pass
+    print('network config:', sta_if.ifconfig())
+ 
+# This file is executed on every boot (including wake-boot from deepsleep)
+#import esp
+#esp.osdebug(None)
+ 
+# Attempt to connect to WiFi network
+do_connect('your_ssid', 'your_password')
+ 
+import webrepl
+webrepl.start()
+```
+Altere **your_ssid** e **your_password** para as credenciais (SSID, senha WiFi) da sua rede WiFi de 2.4GHz. Quando terminar as alterações, digite ```:x``` e pressione ```Enter``` para salvar as alterações.
+Depois de editar ```boot.py```, entre no *MicroPython REPL*:
+```
+repl
+```
+Uma vez que o *Python REPL* seja carregado, pressione o ```Ctrl-D``` para reiniciar a placa *ESP32*. Quando o seu quadro de desenvolvimento *ESP32* for reiniciado, você deve encontrar alguma saída semelhante à seguinte:
+```
+MPY: soft reboot
+network config: ('192.168.1.131', '255.255.255.0', '192.168.1.1', '192.168.1.1')
+WebREPL daemon started on ws://192.168.1.131:8266
+Started webrepl in normal mode
+MicroPython v1.12-68-g3032ae115 on 2020-01-15; ESP32 module with ESP32
+Type "help()" for more information.
+```
+Neste caso, usaremos ```ws://192.168.1.131:8266``` para conectar à placa de desenvolvimento *ESP32*. Se sua placa de desenvolvimento *ESP32* estiver conectada à sua rede WiFi com sucesso, então você deve obter a URL para se conectar à sua placa.
+
+</br>
+
+### Usando o cliente *MicroPython WebREPL* para interagir com sua placa de desenvolvimento *ESP32*
+
+</br>
+
+Nessa parte, precisamos baixar o [WebREPL](https://github.com/micropython/webrepl), eu recomendo utilizar o SSH:
+```
+git clone git@github.com:micropython/webrepl.git
+```
+Depois de baixar, abrir o arquivo ```webrepl.html``` com o navegador.
+
+</br>
