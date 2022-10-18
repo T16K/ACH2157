@@ -34,3 +34,6 @@ html_theme = 'sphinx_rtd_theme'
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
+
+# -- Auto-generated header anchors
+myst_heading_anchors = 3
