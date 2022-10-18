@@ -7,7 +7,7 @@ copyright = '2022, CFA'
 author = 'Tsuyoshi'
 
 release = '0.1'
-version = '0.2.0'
+version = '0.1.0'
 
 # -- General configuration
 
