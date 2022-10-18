@@ -27,7 +27,7 @@ Para esta seção estamos dividindo-a em duas partes, a primeira será dos objet
 Para os componentes decidimos usar:
 - *ESP32* 
 - Sensor Solar 
-- Bateria.
+- Bateria
 
 ### Os *Softwares*
 
