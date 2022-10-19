@@ -1,16 +1,8 @@
-## ACH2157
-
-</br>
-
-- Aulas de [Computação Física e Aplicações](https://github.com/FNakano/CFA)
+# *MicroPython*
 
 </br>
 
 ## Como configurar o *MicroPython* em sua placa de desenvolvimento *ESP32* para executar aplicativos *Python*
-
-</br>
-
-- Informações gerais sobre a porta [*ESP32*](https://docs.micropython.org/en/latest/esp32/general.html)
 
 </br>
 

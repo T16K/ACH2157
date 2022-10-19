@@ -2,7 +2,7 @@
 
 ## O que é isso?
 
-Esse é o projeto final da **Disciplina: ACH2157 - Computação Física e Aplicações**.
+Esse é o projeto final da [Disciplina: ACH2157 - Computação Física e Aplicações](https://github.com/FNakano/CFA).
 
 Nele estamos propondo o uso do aplicativo **PROTETOR SOLAR ☀️☀️**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
 
@@ -25,7 +25,7 @@ Para esta seção estamos dividindo-a em duas partes, a primeira será dos objet
 ### Os Componentes
 
 Para os componentes decidimos usar:
-- *ESP32* 
+- [*ESP32*](https://docs.micropython.org/en/latest/esp32/general.html) 
 - Sensor Solar 
 - Bateria
 
