@@ -48,4 +48,4 @@ Os *softwares* que serão utilizados:
 .. toctree::
    :maxdepth: 2
 
-    micropython
+    py
