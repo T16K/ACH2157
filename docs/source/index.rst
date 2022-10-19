@@ -46,5 +46,6 @@ Os *softwares* que serão utilizados:
 - *IoT analytics*: https://thingspeak.com/
 
 .. toctree::
+   :maxdepth: 1
 
     py
