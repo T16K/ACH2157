@@ -47,4 +47,4 @@ Os *softwares* que serão utilizados:
 
 .. toctree::
 
-    MicroPython
+    py
