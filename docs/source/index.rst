@@ -49,5 +49,3 @@ Os *softwares* que serão utilizados:
    :maxdepth: 1
 
     py
-- Aplicativo: http://appinventor.mit.edu/
-- *IoT analytics*: https://thingspeak.com/
