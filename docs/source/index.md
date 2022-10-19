@@ -35,3 +35,7 @@ Os *softwares* que serão utilizados:
 - [*MicroPython*](MicroPython.md)
 - [Aplicativo](http://appinventor.mit.edu/)
 - [*IoT analytics*](https://thingspeak.com/)
+
+.. toctree::
+
+    MicroPython
