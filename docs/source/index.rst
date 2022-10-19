@@ -42,8 +42,10 @@ Os *Softwares*
 
 Os *softwares* que serão utilizados:
 
-- Aplicativo: http://appinventor.mit.edu/
-- *IoT analytics*: https://thingspeak.com/
+- Aplicativo
+    - http://appinventor.mit.edu/
+- *IoT analytics*
+    - https://thingspeak.com/
 
 .. toctree::
     :maxdepth: 2
