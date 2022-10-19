@@ -1,4 +1,4 @@
-# *MicroPython*
+# MicroPython
 
 ## Como configurar o *MicroPython* em sua placa de desenvolvimento *ESP32* para executar aplicativos *Python*
 
