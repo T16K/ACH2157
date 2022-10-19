@@ -1,22 +1,12 @@
 # *MicroPython*
 
-</br>
-
 ## Como configurar o *MicroPython* em sua placa de desenvolvimento *ESP32* para executar aplicativos *Python*
-
-</br>
 
 ### Baixando uma cópia do *MicroPython* para o seu *ESP32*
 
-</br>
-
 A primeira coisa que você precisa fazer é baixar o *firmware MicroPython* (arquivo .bin) para carregar em seu dispositivo *ESP32*. Você pode baixá-lo na [página de downloads do *MicroPython*](https://micropython.org/download/esp32/).
 
-</br>
-
 ### Colocando o *MicroPython* no *ESP32*
-
-</br>
 
 Com isso, precisamos ter permissão para acessar a porta ``` \dev\ttyUSB0 ```,
 ```
@@ -24,14 +14,14 @@ sudo chmod 666 /dev/ttyUSB0
 ```
 mas se nós desconectarmos o dispositivo USB e reconectarmos ele, precisaremos refazer o comando.
 
-</br>
+<br />
 
 Depois que o computador for capaz de se comunicar com sua placa de desenvolvimento *ESP32*, instale o [```esptool```](https://github.com/espressif/esptool) com,
 ```
 pip install esptool
 ```
 
-</br>
+<br />
 
 Então agora apagamos tudo do *flash* da sua placa *ESP32* com o seguinte comando:
 ```
@@ -43,11 +33,7 @@ esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 
 ```
 Quando o comando for concluído, você poderá executar códigos Python em sua placa ESP32 via MicroPython.
 
-</br>
-
 ### Verificando sua configuração do *MicroPython* em sua placa de desenvolvimento *ESP32*
-
-</br>
 
 Então, como podemos saber se o *MicroPython* está corretamente instalado em nossa placa de desenvolvimento *ESP32*?
 
@@ -60,11 +46,7 @@ repl
 ```
 Se você quiser ver o *MicroPython*, então você pode pressionar ```Ctrl-D``` para iniciar uma reinicialização suave. Neste momento, você pode tentar executar alguns códigos *Python* no ```REPL```.
 
-</br>
-
 ## Como configurar o *MicroPython* [*WebREPL*](https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) em sua placa de desenvolvimento *ESP32*
-
-</br>
 
 Agora, você poderá habilitar o *WebREPL* em sua placa *ESP32*. Para isso, digite o seguinte código no prompt ```REPL```:
 ```
@@ -72,11 +54,7 @@ import webrepl_setup
 ```
 Depois de fazê-lo, siga as instruções para ativar o *WebREPL* em sua placa *ESP32*.
 
-</br>
-
 ### Conectando sua placa ESP32 à sua rede de roteador
-
-</br>
 
 Primeiro, use ```rshell``` para se conectar à sua placa *ESP32* via conexão serial:
 ```
@@ -126,16 +104,10 @@ Type "help()" for more information.
 ```
 Neste caso, usaremos ```ws://192.168.1.131:8266``` para conectar à placa de desenvolvimento *ESP32*. Se sua placa de desenvolvimento *ESP32* estiver conectada à sua rede WiFi com sucesso, então você deve obter a URL para se conectar à sua placa.
 
-</br>
-
 ### Usando o cliente *MicroPython WebREPL* para interagir com sua placa de desenvolvimento *ESP32*
-
-</br>
 
 Nessa parte, precisamos baixar o [WebREPL](https://github.com/micropython/webrepl), eu recomendo utilizar o SSH:
 ```
 git clone git@github.com:micropython/webrepl.git
 ```
 Depois de baixar, abrir o arquivo ```webrepl.html``` com o navegador.
-
-</br>
