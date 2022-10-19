@@ -32,6 +32,7 @@ Os Componentes
 ^^^^^^^^^^^^^^
 
 Para os componentes decidimos usar:
+
 - *ESP32* 
 - Sensor Solar 
 - Bateria
@@ -47,4 +48,4 @@ Os *softwares* que serão utilizados:
 .. toctree::
    :maxdepth: 2
 
-    MicroPython
+    micropython
