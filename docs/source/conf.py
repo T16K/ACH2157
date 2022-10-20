@@ -17,6 +17,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.autosectionlabel',
     'myst_parser',
 ]
 
@@ -38,3 +39,6 @@ epub_show_urls = 'footnote'
 
 # -- Auto-generated header anchors
 myst_heading_anchors = 3
+
+# Make sure the target is unique
+autosectionlabel_prefix_document = True
