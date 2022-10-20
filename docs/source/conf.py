@@ -23,6 +23,7 @@ extensions = [
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
+    'boot': ('https://t16k-ach2157.readthedocs.io/en/latest/comp/esp.html#conectando-sua-placa-esp32-a-sua-rede-de-roteador', None),
 }
 intersphinx_disabled_domains = ['std']
 

@@ -38,7 +38,7 @@ print(station.ifconfig())
 led = Pin(2, Pin.OUT)
 ```
 
-[a](../comp/esp.md/boot_target)
+{ref}`boot`
 
 
 <br />
