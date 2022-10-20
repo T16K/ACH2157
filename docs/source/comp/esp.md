@@ -83,7 +83,6 @@ Uma vez que o ```rshell``` é iniciado, execute o seguinte comando para editar `
 edit /pyboard/boot.py
 ```
 Quando o seu editor ```neovim``` carregar ```boot.py```, edite-o para parecer com o seguinte:
-#### boot
 ```python
 def do_connect(ssid, pwd):
     import network
