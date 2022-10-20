@@ -168,4 +168,25 @@ border-radius: 4px; color: white; padding: 16px 40px; text-decoration: none; fon
 
 Depois de criar o *HTML* para construir a página da Web, precisamos criar um *socket* para receber as solicitações e enviar o texto *HTML* em resposta. Para uma melhor compreensão, a figura a seguir mostra um diagrama sobre como criar *socket* para interação servidor-cliente:
 
-!(socket)[../../../img/socket.png]
+![socket](../../../img/socket.png)
+
+Crie um *socket* usando ```socket.socket()```, e especifique o tipo de *socket*. Criamos um novo objeto de *socket* chamado ```s``` com a família endereço dado e tipo de *socket*. Este é um *STREAM TCP socket*:
+```py
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+```
+
+Em seguida, vincule o *socket* a um endereço (interface de rede e número de porta) usando o método ```bind()```. O método ```bind()``` aceita uma variável *tupple* com o endereço *ip* e o número da porta:
+```py
+s.bind(('', 80))
+```
+Em nosso exemplo, estamos passando uma sequência vazia ```''``` como um endereço IP e porta 80. Neste caso, a sequência vazia refere-se ao endereço IP *localhost* (isso significa o endereço IP ESP32).
+
+A próxima linha permite que o servidor aceite conexões. O argumento especifica o número máximo de conexões enfileiadas. O máximo é 5.
+```py
+s.listen(5)
+```
+
+No *loop while* é onde recebemos solicitações e enviamos respostas. Quando um cliente se conecta, o servidor chama o método ```accept()``` para aceitar a conexão. Quando um cliente se conecta, ele salva um novo objeto de socket para aceitar e enviar dados sobre a variável ```conn``` e salva o endereço do cliente para se conectar ao servidor na variável ```addr```.
+```py
+conn, addr = s.accept()
+```
