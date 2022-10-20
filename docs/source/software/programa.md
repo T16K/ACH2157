@@ -38,7 +38,7 @@ print(station.ifconfig())
 led = Pin(2, Pin.OUT)
 ```
 
-- {ref}`:ref: role <boot:boot-py>`
+- {ref}`../comp/esp:boot.py`
 
 
 <br />
