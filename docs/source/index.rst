@@ -32,7 +32,7 @@ Os Componentes
 ^^^^^^^^^^^^^^
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     comp/esp
     comp/sensor
@@ -42,7 +42,7 @@ Os *Softwares*
 ^^^^^^^^^^^^^^
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     software/programa
     software/aplicativo

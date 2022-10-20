@@ -1,3 +1,3 @@
 # *IoT analytics*
 
-- https://thingspeak.com/
+https://thingspeak.com/
