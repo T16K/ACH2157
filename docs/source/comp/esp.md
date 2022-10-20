@@ -70,6 +70,7 @@ import webrepl_setup
 ```
 Depois de fazê-lo, siga as instruções para ativar o *WebREPL* em sua placa *ESP32*.
 
+(boot_target)=
 ### Conectando sua placa ESP32 à sua rede de roteador
 
 Primeiro, use ```rshell``` para se conectar à sua placa *ESP32* via conexão serial:
