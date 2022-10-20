@@ -82,29 +82,8 @@ Uma vez que o ```rshell``` é iniciado, execute o seguinte comando para editar `
 ```
 edit /pyboard/boot.py
 ```
-Quando o seu editor ```neovim``` carregar ```boot.py```, edite-o para parecer com o seguinte:
-```python
-def do_connect(ssid, pwd):
-    import network
-    sta_if = network.WLAN(network.STA_IF)
-    if not sta_if.isconnected():
-        print('connecting to network...')
-        sta_if.active(True)
-        sta_if.connect(ssid, pwd)
-        while not sta_if.isconnected():
-            pass
-    print('network config:', sta_if.ifconfig())
- 
-# This file is executed on every boot (including wake-boot from deepsleep)
-#import esp
-#esp.osdebug(None)
- 
-# Attempt to connect to WiFi network
-do_connect('your_ssid', 'your_password')
- 
-import webrepl
-webrepl.start()
-```
+Quando o seu editor ```neovim``` carregar ```boot.py```, edite-o para parecer com o [seguinte](../software/programa.md).
+
 Altere **your_ssid** e **your_password** para as credenciais (SSID, senha WiFi) da sua rede WiFi de 2.4GHz. Quando terminar as alterações, digite ```:x``` e pressione ```Enter``` para salvar as alterações.
 Depois de editar ```boot.py```, entre no *MicroPython REPL*:
 ```
