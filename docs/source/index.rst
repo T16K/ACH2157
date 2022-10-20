@@ -33,21 +33,22 @@ Os Componentes
 
 Para os componentes decidimos usar:
 
-- *ESP32* 
-- Sensor Solar 
-- Bateria
+.. toctree::
+    :maxdepth: 1
+
+    py
+    sensor
+    bateria
 
 Os *Softwares*
 ^^^^^^^^^^^^^^
 
 Os *softwares* que serão utilizados:
 
+- Programas
+    - https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/
+    - https://randomnerdtutorials.com/esp32-bh1750-ambient-light-sensor/
 - Aplicativo
     - http://appinventor.mit.edu/
 - *IoT analytics*
     - https://thingspeak.com/
-
-.. toctree::
-    :maxdepth: 2
-
-    py
