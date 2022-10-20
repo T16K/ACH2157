@@ -122,3 +122,33 @@ while True:
   conn.sendall(response)
   conn.close()
 ```
+
+Então agora vamos criar nosso servidor web usando *sockets* e a *API* do *socket Python*. A documentação oficial importa a biblioteca de ```socket``` da seguinte forma:
+```py
+try:
+  import usocket as socket
+except:
+  import socket
+```
+
+Além disso, precisamos importar a classe ```Pin``` do módulo da ```machine``` para poder interagir com os *GPIOs*,
+```py
+from machine import Pin
+```
+e criar um objeto ```Pin``` chamado ```led``` que seja uma saída, que se refere ao *GPIO2* do *ESP32*:
+```py
+led = Pin(2, Pin.OUT)
+```
+
+O script cria uma função chamada ```web_page()```. Esta função retorna uma variável chamada ```html``` que contém o texto HTML para construir a página da Web.
+```py
+def web_page():
+```
+
+A página da *Web* exibe o estado *GPIO* atual. Então, antes de gerar o texto *HTML*, precisamos verificar o estado *LED.* Salvamos seu estado na variável ```gpio_state```:
+```py
+if led.value() == 1:
+  gpio_state="ON"
+else:
+  gpio_state="OFF"
+```
