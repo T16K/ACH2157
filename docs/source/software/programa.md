@@ -4,7 +4,7 @@ Para este projeto, usaremos um arquivo *boot.py* e um arquivo *socket.py*. O arq
 
 O arquivo *socket.py* conterá o código que executa o servidor web para servir arquivos e executar tarefas com base nas solicitações recebidas pelo cliente.
 
-- {ref}`../comp/esp.md:boot.py`
+- {ref}`../comp/esp:boot`
 
 <br />
 
