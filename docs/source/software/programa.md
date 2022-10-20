@@ -190,3 +190,7 @@ No *loop while* é onde recebemos solicitações e enviamos respostas. Quando um
 ```py
 conn, addr = s.accept()
 ```
+Em seguida, imprime o endereço do cliente salvo na variável ```addr```.
+```py
+print('Got a connection from %s' % str(addr))
+```
