@@ -36,19 +36,18 @@ Para os componentes decidimos usar:
 .. toctree::
     :maxdepth: 1
 
-    py
-    sensor
-    bateria
+    comp/esp
+    comp/sensor
+    comp/bateria
 
 Os *Softwares*
 ^^^^^^^^^^^^^^
 
 Os *softwares* que serão utilizados:
 
-- Programas
-    - https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/
-    - https://randomnerdtutorials.com/esp32-bh1750-ambient-light-sensor/
-- Aplicativo
-    - http://appinventor.mit.edu/
-- *IoT analytics*
-    - https://thingspeak.com/
+.. toctree::
+    :maxdepth: 1
+
+    software/programa
+    software/aplicativo
+    software/iot

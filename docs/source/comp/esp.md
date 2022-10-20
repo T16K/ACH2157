@@ -1,6 +1,6 @@
 # ESP32
 
-*ESP32* é um sistema em um chip que integra os seguintes recursos:
+[*ESP32*](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/) é um sistema em um chip que integra os seguintes recursos:
 
 - Wi-Fi (2.4 GHz band)
 - Bluetooth
@@ -16,7 +16,7 @@ Para esse projeto usaremos o [*MicroPython*](https://docs.micropython.org/en/lat
 
 ## Como configurar o *MicroPython* em sua placa de desenvolvimento *ESP32* para executar aplicativos *Python*
 
-Informações gerais sobre a porta [*ESP32*](https://docs.micropython.org/en/latest/esp32/general.html)
+Informações gerais sobre a [porta *ESP32*](https://docs.micropython.org/en/latest/esp32/general.html)
 
 ### Baixando uma cópia do *MicroPython* para o seu *ESP32*
 
