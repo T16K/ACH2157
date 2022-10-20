@@ -31,10 +31,8 @@ Para esta seção estamos dividindo-a em duas partes, a primeira será dos objet
 Os Componentes
 ^^^^^^^^^^^^^^
 
-Para os componentes decidimos usar:
-
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     comp/esp
     comp/sensor
@@ -43,10 +41,8 @@ Para os componentes decidimos usar:
 Os *Softwares*
 ^^^^^^^^^^^^^^
 
-Os *softwares* que serão utilizados:
-
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     software/programa
     software/aplicativo
