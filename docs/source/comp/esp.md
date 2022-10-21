@@ -8,15 +8,15 @@
 - Ultra Low Power co-processor
 - Multiple peripherals
 
-Alimentado por tecnologia de 40 nm, o *ESP32* fornece uma plataforma robusta e altamente integrada, que ajuda a atender às demandas contínuas de uso eficiente de energia, design compacto, segurança, alto desempenho e confiabilidade.
+Alimentado por tecnologia de 40 nm, o *ESP32* fornece uma plataforma robusta e altamente integrada, que ajuda a atender às demandas contínuas de uso eficiente de energia, *design* compacto, segurança, alto desempenho e confiabilidade.
 
-O *Espressif* fornece recursos básicos de hardware e software para ajudar os desenvolvedores de aplicativos a realizar suas ideias usando o hardware da série *ESP32*. A estrutura de desenvolvimento de software da *Espressif* destina-se ao desenvolvimento de aplicações de Internet das Coisas (IoT) com Wi-Fi, Bluetooth, gerenciamento de energia e vários outros recursos do sistema.
+O *Espressif* fornece recursos básicos de *hardware* e *software* para ajudar os desenvolvedores de aplicativos a realizar suas ideias usando o *hardware* da série *ESP32*. A estrutura de desenvolvimento de *software* da *Espressif* destina-se ao desenvolvimento de aplicações de Internet das Coisas (IoT) com *Wi-Fi*, *Bluetooth*, gerenciamento de energia e vários outros recursos do sistema.
 
 Para esse projeto usaremos o [*MicroPython*](https://docs.micropython.org/en/latest/esp32/quickref.html). Usar o *MicroPython* é uma ótima maneira de aproveitar ao máximo sua placa *ESP32*. E vice-versa, o chip *ESP32* é uma ótima plataforma para usar o *MicroPython*. Esta seção irá guiá-lo através da configuração do *MicroPython*, obtendo um prompt, usando WebREPL, conectando-se à rede e se comunicando com a Internet, usando os periféricos de hardware e controlando alguns componentes externos.
 
 ## Como configurar o *MicroPython* em sua placa de desenvolvimento *ESP32* para executar aplicativos *Python*
 
-Informações gerais sobre a [porta *ESP32*](https://docs.micropython.org/en/latest/esp32/general.html)
+Informações gerais sobre a [porta *ESP32*](https://docs.micropython.org/en/latest/esp32/general.html).
 
 ### Baixando uma cópia do *MicroPython* para o seu *ESP32*
 
