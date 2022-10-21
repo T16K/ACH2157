@@ -1,3 +1,3 @@
 # *IoT analytics*
 
-[site](https://thingspeak.com/)
+Usaremos o coletor de dados [ThingSpeak](https://thingspeak.com/)
