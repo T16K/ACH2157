@@ -194,3 +194,35 @@ Em seguida, imprime o endereço do cliente salvo na variável ```addr```.
 ```py
 print('Got a connection from %s' % str(addr))
 ```
+
+Os dados são trocados entre o cliente e o servidor usando os métodos ```send()``` e ```recv()```.
+
+A linha a seguir recebe a solicitação recebida no *socket* recém-criado e salva-a na variável ```request```.
+```py
+request = conn.recv(1024)
+```
+
+O método ```recv()``` recebe os dados do *client socket* (lembre-se que criamos um novo objeto de socket na variável ```conn```). O argumento do método ```recv()``` especifica os dados máximos que podem ser recebidos de uma só vez.
+
+A próxima linha simplesmente imprime o conteúdo da solicitação:
+```py
+print('Content = %s' % str(request))
+```
+
+Em seguida, crie uma variável chamada ```response``` contenha o texto *HTML* devolvido pela função ```web_page()```:
+```py
+reponse = web_page()
+```
+
+Por fim, envie a resposta ao *socket client* usando os métodos de ```send()``` e ```sendall()```:
+```py
+conn.send('HTTP/1.1 200 OK\n')
+conn.send('Content-Type: text/html\n')
+conn.send('Connection: close\n\n')
+conn.sendall(response)
+```
+
+Por fim, feche o *socket* criado.
+```py
+conn.close()
+```
