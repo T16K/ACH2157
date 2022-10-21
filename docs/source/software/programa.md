@@ -136,6 +136,8 @@ while True:
   conn.close()
 ```
 
+<br />
+
 Então agora vamos criar nosso servidor web usando *sockets* e a *API* do *socket Python*. A documentação oficial importa a biblioteca de ```socket``` da seguinte forma:
 ```py
 try:
@@ -143,6 +145,8 @@ try:
 except:
   import socket
 ```
+
+<br />
 
 Além disso, precisamos importar a classe ```Pin``` do módulo da ```machine``` para poder interagir com os *GPIOs*,
 ```py
@@ -153,10 +157,14 @@ e criar um objeto ```Pin``` chamado ```led``` que seja uma saída, que se refere
 led = Pin(2, Pin.OUT)
 ```
 
+<br />
+
 O script cria uma função chamada ```web_page()```. Esta função retorna uma variável chamada ```html``` que contém o texto HTML para construir a página da Web.
 ```py
 def web_page():
 ```
+
+<br />
 
 A página da *Web* exibe o estado *GPIO* atual. Então, antes de gerar o texto *HTML*, precisamos verificar o estado *LED.* Salvamos seu estado na variável ```gpio_state```:
 ```py
@@ -165,6 +173,8 @@ if led.value() == 1:
 else:
   gpio_state="OFF"
 ```
+
+<br />
 
 Depois disso, a variável ```gpio_state``` é incorporada ao texto *HTML* usando sinais "+" para concatenar *strings*.
 ```py
@@ -183,10 +193,14 @@ Depois de criar o *HTML* para construir a página da Web, precisamos criar um *s
 
 ![socket](../../../img/socket.png)
 
+<br />
+
 Crie um *socket* usando ```socket.socket()```, e especifique o tipo de *socket*. Criamos um novo objeto de *socket* chamado ```s``` com a família endereço dado e tipo de *socket*. Este é um *STREAM TCP socket*:
 ```py
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ```
+
+<br />
 
 Em seguida, vincule o *socket* a um endereço (interface de rede e número de porta) usando o método ```bind()```. O método ```bind()``` aceita uma variável *tupple* com o endereço *ip* e o número da porta:
 ```py
@@ -194,10 +208,14 @@ s.bind(('', 80))
 ```
 Em nosso exemplo, estamos passando uma sequência vazia ```''``` como um endereço IP e porta 80. Neste caso, a sequência vazia refere-se ao endereço IP *localhost* (isso significa o endereço IP ESP32).
 
+<br />
+
 A próxima linha permite que o servidor aceite conexões. O argumento especifica o número máximo de conexões enfileiadas. O máximo é 5.
 ```py
 s.listen(5)
 ```
+
+<br />
 
 No *loop while* é onde recebemos solicitações e enviamos respostas. Quando um cliente se conecta, o servidor chama o método ```accept()``` para aceitar a conexão. Quando um cliente se conecta, ele salva um novo objeto de socket para aceitar e enviar dados sobre a variável ```conn``` e salva o endereço do cliente para se conectar ao servidor na variável ```addr```.
 ```py
@@ -207,25 +225,31 @@ Em seguida, imprime o endereço do cliente salvo na variável ```addr```.
 ```py
 print('Got a connection from %s' % str(addr))
 ```
-
 Os dados são trocados entre o cliente e o servidor usando os métodos ```send()``` e ```recv()```.
+
+<br />
 
 A linha a seguir recebe a solicitação recebida no *socket* recém-criado e salva-a na variável ```request```.
 ```py
 request = conn.recv(1024)
 ```
-
 O método ```recv()``` recebe os dados do *client socket* (lembre-se que criamos um novo objeto de socket na variável ```conn```). O argumento do método ```recv()``` especifica os dados máximos que podem ser recebidos de uma só vez.
+
+<br />
 
 A próxima linha simplesmente imprime o conteúdo da solicitação:
 ```py
 print('Content = %s' % str(request))
 ```
 
+<br />
+
 Em seguida, crie uma variável chamada ```response``` contenha o texto *HTML* devolvido pela função ```web_page()```:
 ```py
 reponse = web_page()
 ```
+
+<br />
 
 Por fim, envie a resposta ao *socket client* usando os métodos de ```send()``` e ```sendall()```:
 ```py
@@ -234,6 +258,8 @@ conn.send('Content-Type: text/html\n')
 conn.send('Connection: close\n\n')
 conn.sendall(response)
 ```
+
+<br />
 
 Por fim, feche o *socket* criado.
 ```py
