@@ -45,3 +45,4 @@ Os *Softwares*
     software/programa
     software/aplicativo
     software/iot
+    software/ide
