@@ -1,6 +1,6 @@
 # Arduino IDE
 
-Nesta seção, eu vou mostrar as pesquisas que foram feitas para solucionar a parte da comunicação do *ESP32*, com o sensor [*GY-30*](/sensor.md) e o site [*ThingSpeak*](https://thingspeak.com/).
+Nesta seção, eu vou mostrar as pesquisas que foram feitas para solucionar a parte da comunicação do *ESP32*, com o sensor [*GY-30*](../comp/sensor.md) e o site [*ThingSpeak*](https://thingspeak.com/).
 
 ## Preparando Arduino IDE
 
