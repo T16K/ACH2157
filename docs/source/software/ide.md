@@ -24,8 +24,7 @@ Agora eu conecto a placa *ESP32* no meu computador, e com o Arduino IDE:
 - No caso eu escolhi usar o arquivo exemplo **File** > **Examples** > **WiFi (ESP32)** > **WiFiScan**.
 - Fazer o *Upload* do arquivo:
 ![upload](../../../img/upload.png)
-- Abrir o Arduino IDE *Serial Monitor* e colocar a taxa de transmissão em ```115200```:
-![monitor](../../../img/monitor.png)
+- Abrir o Arduino IDE *Serial Monitor* e colocar a taxa de transmissão em ```115200```: ![monitor](../../../img/monitor.png)
 
 ## Instalando a **Biblioteca BH1750**
 
