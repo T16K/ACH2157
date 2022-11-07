@@ -8,4 +8,6 @@ Read the tutorial here:
 
 https://docs.readthedocs.io/en/stable/tutorial/
 
+To access the document:
+
 https://t16k-ach2157.rtfd.io
