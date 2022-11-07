@@ -34,3 +34,5 @@ Existem várias bibliotecas para o sensor *BH1750*. Eu escolhi usar a [bibliotec
 - Para testar eu usei o arquivo exemplo **File** > **Examples** > **BH1750** > **BH1750test**.
 - Depois de dar *Upload* com sucesso, abra o *Serial Monitor* a uma taxa de transmissão em ```9600``` e pressione o botão **RST** no *ESP32*:
 ![luz](../../../img/luz.png)
+
+## Instalando a **Biblioteca ThingSpeak**
