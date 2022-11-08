@@ -36,3 +36,5 @@ Existem várias bibliotecas para o sensor *BH1750*. Eu escolhi usar a [bibliotec
 ![luz](../../../img/luz.png)
 
 ## Instalando a **Biblioteca ThingSpeak**
+
+Para enviar leituras de sensores para o *ThingSpeak*, usei a biblioteca *thingspeak-arduino*. Para instalar: Sketch > Include Library > Manage Libraries... e procure por "**ThingSpeak**" no *Library Manager*. Instalei a biblioteca *ThingSpeak* pelo *MathWorks*.
