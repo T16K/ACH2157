@@ -32,8 +32,6 @@ O sensor suporta dois modos de medição diferentes: *continuous measurement mod
 
 No *continuous measurement mode*, o sensor mede continuamente os valores da luz ambiente. No *one-time measurement mode*, o sensor mede o valor da luz ambiente uma vez, e então ele vai para o modo de desligamento.
 
-[GYML8511 UV Sensor](http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor)
-
 ## BH1750 Pinout
 
 | Pinout | Descrição |
@@ -70,3 +68,5 @@ O sensor de luz ambiente BH1750 suporta interface I2C. Eu conectei o sensor BH17
 | ADD* | Não conecta |
 
 Ao não conectar o pino ADD, estamos selecionando o endereço I2C ```0x23```. Conecte-o a 3.3V para selecionar o endereço ```0x5C```.
+
+[GYML8511 UV Sensor](http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor)
