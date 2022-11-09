@@ -24,7 +24,7 @@ Aqui está uma lista dos recursos do sensor BH1750. Para mais informações cons
 
 O sensor suporta dois modos de medição diferentes: *continuous measurement mode* e *one-time measurement mode*. Cada modo suporta três modos de resolução diferentes.
 
-| Modo Resolução | Precisão | Tempo de Medição |
+| Resolução | Precisão | Tempo de Medição |
 | :---: | :---: | :---: |
 | Modo de Baixa Resolução | 4 lux | 16 ms |
 | Modo de Alta Resolução | 1 lux | 120 ms |
@@ -33,3 +33,40 @@ O sensor suporta dois modos de medição diferentes: *continuous measurement mod
 No *continuous measurement mode*, o sensor mede continuamente os valores da luz ambiente. No *one-time measurement mode*, o sensor mede o valor da luz ambiente uma vez, e então ele vai para o modo de desligamento.
 
 [GYML8511 UV Sensor](http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor)
+
+## BH1750 Pinout
+
+| Pinout | Descrição |
+| :---: | :---: |
+| VCC | Alimenta o sensor (3.3V ou 5V) |
+| GND | GND comum |
+| SCL | Pino SCL para comunicação I2C |
+| SDA (Data) | Pino SDA para comunicação I2C |
+| ADD* | Seleciona endereço |
+
+O pino ADD é usado para definir o endereço do sensor I2C. Se a tensão nesse pino for inferior a 0,7VCC (o pino é deixado ignorado ou conectado ao GND), o endereço I2C será ```0x23```. Mas, se a tensão for superior a 0,7xVCC (o pino está conectado ao VCC), o endereço é ```0x5C```. Resumindo:
+- Ignorar o pino ou conectar ao ```GND``` → endereço: ```0x23``` 
+- Adicionar pino conectado ao ```VCC``` → endereço: ```0x5C```
+
+## BH1750 Interface I2C
+
+O sensor de luz ambiente BH1750 suporta interface I2C. Eu conectei o sensor BH1750 ao ESP32 usando os pinos I2C padrão:
+
+| BH1750 | ESP32 |
+| :---: | :---: |
+| SCL | ```GPIO 22``` |
+| SDA | ```GPIO 21``` |
+
+## Esquema – ESP32 com BH1750
+
+![diagrama](../../../img/diagrama.png)
+
+| BH1750 | ESP32 |
+| :---: | :---: |
+| VCC | ```3.3V``` |
+| GND | ```GND``` |
+| SCL | ```GPIO 22``` |
+| SDA | ```GPIO 21``` |
+| ADD* | Não conecta |
+
+Ao não conectar o pino ADD, estamos selecionando o endereço I2C ```0x23```. Conecte-o a 3.3V para selecionar o endereço ```0x5C```.
