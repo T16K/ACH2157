@@ -20,4 +20,16 @@ Aqui está uma lista dos recursos do sensor BH1750. Para mais informações cons
 - Suporta modo de medição contínua 
 - Suporta o modo de medição único
 
+## Modos de Medição
+
+O sensor suporta dois modos de medição diferentes: *continuous measurement mode* e *one-time measurement mode*. Cada modo suporta três modos de resolução diferentes.
+
+| Modo Resolução | Precisão | Tempo de Medição |
+| :---: | :---: | :---: |
+| Modo de Baixa Resolução | 4 lux | 16 ms |
+| Modo de Alta Resolução | 1 lux | 120 ms |
+| Modo de Alta Resolução 2 | 0.5 lux | 120 ms |
+
+No *continuous measurement mode*, o sensor mede continuamente os valores da luz ambiente. No *one-time measurement mode*, o sensor mede o valor da luz ambiente uma vez, e então ele vai para o modo de desligamento.
+
 [GYML8511 UV Sensor](http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor)
