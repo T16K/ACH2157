@@ -1,4 +1,4 @@
-Bem vindo à documentação PROTETOR SOLAR ☀️☀️
+Bem vindo à documentação PROTETOR SOLAR ☀️
 =============================================
 
 O que é isso?
@@ -6,10 +6,10 @@ O que é isso?
 
 Esse é o projeto final da **Disciplina: ACH2157 - Computação Física e Aplicações**: https://github.com/FNakano/CFA
 
-Nele estamos propondo o uso do aplicativo **PROTETOR SOLAR ☀️☀️**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
+Nele estamos propondo o uso do aplicativo **PROTETOR SOLAR ☀️***, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
 
 Inspiração
-----------
+^^^^^^^^^^
 
 Olhando para o Objetivo de Desenvolvimento Sustentável 3. **Assegurar uma vida saudável e promover o bem-estar para todas e todos, em todas as idades**, pensamos uma forma de promover o alinhamento específico do **3.4** - Até 2030, reduzir em um terço a mortalidade prematura por doenças não transmissíveis via prevenção e tratamento, e promover a saúde mental e o bem-estar.
 
