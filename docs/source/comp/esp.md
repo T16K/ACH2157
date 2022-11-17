@@ -10,29 +10,29 @@
 
 Alimentado por tecnologia de 40 nm, o *ESP32* fornece uma plataforma robusta e altamente integrada, que ajuda a atender às demandas contínuas de uso eficiente de energia, *design* compacto, segurança, alto desempenho e confiabilidade.
 
-O *Espressif* fornece recursos básicos de *hardware* e *software* para ajudar os desenvolvedores de aplicativos a realizar suas ideias usando o *hardware* da série *ESP32*. A estrutura de desenvolvimento de *software* da *Espressif* destina-se ao desenvolvimento de aplicações de Internet das Coisas (IoT) com *Wi-Fi*, *Bluetooth*, gerenciamento de energia e vários outros recursos do sistema.
+O *Espressif* fornece recursos básicos de *hardware* e *software* para ajudar os desenvolvedores de aplicativos a realizar as ideias usando o *hardware* da série *ESP32*. A estrutura de desenvolvimento de *software* da *Espressif* destina-se ao desenvolvimento de aplicações de Internet das Coisas (IoT) com *Wi-Fi*, *Bluetooth*, gerenciamento de energia e vários outros recursos do sistema.
 
-Para esse projeto usaremos o [*MicroPython*](https://docs.micropython.org/en/latest/esp32/quickref.html). Usar o *MicroPython* é uma ótima maneira de aproveitar ao máximo sua placa *ESP32*. E vice-versa, o chip *ESP32* é uma ótima plataforma para usar o *MicroPython*. Esta seção irá guiá-lo através da configuração do *MicroPython*, obtendo um prompt, usando WebREPL, conectando-se à rede e se comunicando com a Internet, usando os periféricos de hardware e controlando alguns componentes externos.
+Para esse projeto usei o [*MicroPython*](https://docs.micropython.org/en/latest/esp32/quickref.html). Usar o *MicroPython* é uma ótima maneira de aproveitar ao máximo a placa *ESP32*. E vice-versa, o chip *ESP32* é uma ótima plataforma para usar o *MicroPython*. Esta seção guiará através da configuração do *MicroPython*, obtendo um prompt, usando WebREPL, conectando-se à rede e se comunicando com a Internet.
 
-## Como configurar o *MicroPython* em sua placa de desenvolvimento *ESP32* para executar aplicativos *Python*
+## Como configurar o *MicroPython* na placa de desenvolvimento *ESP32* para executar aplicativos *Python*
 
 Informações gerais sobre a [porta *ESP32*](https://docs.micropython.org/en/latest/esp32/general.html).
 
-### Baixando uma cópia do *MicroPython* para o seu *ESP32*
+### Baixar uma cópia do *MicroPython* para o seu *ESP32*
 
-A primeira coisa que você precisa fazer é baixar o *firmware MicroPython* (arquivo .bin) para carregar em seu dispositivo *ESP32*. Você pode baixá-lo na [página de downloads do *MicroPython*](https://micropython.org/download/esp32/).
+Primeiro é preciso baixar o *firmware MicroPython* (arquivo .bin) para carregar no dispositivo *ESP32*. Ele está disponível na [página de downloads do *MicroPython*](https://micropython.org/download/esp32/).
 
 ### Colocando o *MicroPython* no *ESP32*
 
-Com isso, precisamos ter permissão para acessar a porta ``` \dev\ttyUSB0 ```,
+Com isso, é necessário ter permissão para acessar a porta ``` \dev\ttyUSB0 ```,
 ```
 sudo chmod 666 /dev/ttyUSB0 
 ```
-mas se nós desconectarmos o dispositivo USB e reconectarmos ele, precisaremos refazer o comando.
+mas ao desconectar o dispositivo USB e reconectar ele, será necessário refazer o comando.
 
 <br />
 
-Depois que o computador for capaz de se comunicar com sua placa de desenvolvimento *ESP32*, instale o [```esptool```](https://github.com/espressif/esptool) com,
+Depois que o computador for capaz de se comunicar com sua placa de desenvolvimento *ESP32*, instalar o [```esptool```](https://github.com/espressif/esptool) com,
 ```
 pip install esptool
 ```
