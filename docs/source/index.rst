@@ -20,14 +20,14 @@ Então, começando por uma rotina simples de cuidados com a pele estamos oferece
 Referência para o conceito de hábito: https://sites.google.com/view/sources-change/
 
 Como funciona?
---------------
+^^^^^^^^^^^^^^
 
 Para esta seção estamos dividindo-a em duas partes, a primeira será dos objetos físicos que serão responsáveis por avaliar o contexto do usuário, e a segunda que são os programas para interpretar esse contexto e devolver uma decisão.
 
 .. figure:: ../../img/esquema.png
 
 Os Componentes
-^^^^^^^^^^^^^^
+--------------
 
 .. toctree::
     :maxdepth: 1
@@ -37,7 +37,7 @@ Os Componentes
     comp/bateria
 
 Os *Softwares*
-^^^^^^^^^^^^^^
+--------------
 
 .. toctree::
     :maxdepth: 1
