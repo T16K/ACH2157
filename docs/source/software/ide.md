@@ -48,13 +48,13 @@ Para enviar leituras de sensores para o *ThingSpeak*, usei a biblioteca *thingsp
 #include <Arduino.h>
 #include <ML8511.h>
 
-const char* ssid = "Zetakron";   // your network SSID (name) 
-const char* password = "tk02463al27618";   // your network password
+const char* ssid = "SSID";   // your network SSID (name) 
+const char* password = "password";   // your network password
 
 WiFiClient  client;
 
 unsigned long myChannelNumber = 1;
-const char * myWriteAPIKey = "98PNN4DP3RW17W4P";
+const char * myWriteAPIKey = "APIKey";
 
 // Timer variables
 unsigned long lastTime = 0;
