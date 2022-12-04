@@ -19,7 +19,8 @@ const char * myWriteAPIKey = "";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 20000;
 
-int UVsensorIn = 4; //Output from the sensor
+int UVOUT = 15; //Output from the sensor
+int REF_3V3 = 4; //3.3V power on the ESP32 board
 
 BH1750 lightMeter;
 
@@ -32,7 +33,8 @@ void setup() {
   Wire.begin();
   lightMeter.begin();
 
-  pinMode(UVsensorIn, INPUT);
+  pinMode(UVOUT, INPUT);
+  pinMode(REF_3V3, INPUT);
 }
 
 //Takes an average of readings on a given pin
@@ -71,15 +73,27 @@ void loop() {
     Serial.print(lux);
     Serial.println(" lx");
     
-    int uvLevel = averageAnalogRead(UVsensorIn);
+    int uvLevel = averageAnalogRead(UVOUT);
+    int refLevel = averageAnalogRead(REF_3V3);
+  
+    //Use the 3.3V power pin as a reference to get a very accurate output value from sensor
+    float outputVoltage = 3.3 / refLevel * uvLevel;
+  
+    float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0); //Convert the voltage to a UV intensity level
  
-    float outputVoltage = 3.3 * uvLevel/4095;
-    float uvIntensity = mapfloat(outputVoltage, 0.99, 2.9, 0.0, 15.0);
+    Serial.print("output: ");
+    Serial.print(refLevel);
  
-    Serial.print("UV Intensity: ");
+    Serial.print("ML8511 output: ");
+    Serial.print(uvLevel);
+ 
+    Serial.print(" / ML8511 voltage: ");
+    Serial.print(outputVoltage);
+ 
+    Serial.print(" / UV Intensity (mW/cm^2): ");
     Serial.print(uvIntensity);
-    Serial.print(" mW/cm^2"); 
-    Serial.println(); 
+  
+    Serial.println();
 
     // set the fields with the values
     ThingSpeak.setField(1, lux);
