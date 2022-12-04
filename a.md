@@ -10,31 +10,6 @@ header-includes:
       }
 
 ...
-
-H1
-==============
-
-H2 - A
---------------
-
-\Begin{multicols}{2}
-
-### H3 - a
-Blah blah blah...
-
-### H3 - b
-Blah blah blah...
-
-### H3 - c
-Blah blah blah...
-
-\End{multicols}
-
-H2 - B
---------------
-Blah blah blah...
-
-
 # Projeto Protetor Solar
 
 ## Descrição
@@ -56,18 +31,30 @@ Notas:
 
 ### Conexões
 
-| ESP32 | BH1750 | ML8511 |
-| --- | --- | --- |
-| 5V | VCC | --- |
-| 3.3V | --- | 3.3V |
-| GND | GND | GND |
-| GPIO 22 | SCL | --- |
-| GPIO 21 | SDA | --- | 
-| GPIO 34 | --- | OUT |
-| 3.3V = GPIO 35 | --- | --- |
-| 3.3V | --- | EN |
+<table>
+<tr><th>Conexões BH1750 </th><th>Conexões ML8511</th></tr>
+<tr><td>
 
-Notas: Essas duas últimas conexões são um pouco diferentes. Conectar o `pino EN` no breakout a `3.3V` para ativar o dispositivo. Conectar também o `pino 3,3V` do ESP32 ao pino analógico `GPIO 35` do ESP32.
+| ESP32 | BH1750 |
+| :---: | :---: |
+| 5V | VCC |
+| GND | GND |
+| GPIO 22 | SCL |
+| GPIO 21 | SDA |
+
+</td><td>
+
+| ESP32 | ML8511 |
+| :---: | :---: |
+| 3.3V | 3.3V |
+| GND | GND |
+| GPIO 34 | OUT |
+| 3.3V | EN |
+| 3.3V = GPIO 35 | --- |
+
+</td></tr> </table>
+
+Notas: Essas duas últimas conexões do ML8511 são um pouco diferentes. Conectar o `pino EN` no breakout a `3.3V` para ativar o dispositivo. Conectar também o `pino 3,3V` do ESP32 ao pino analógico `GPIO 35` do ESP32.
 
 ## Explica como montar o dispositivo físico
 
