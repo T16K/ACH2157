@@ -47,7 +47,7 @@ int foo (void) {
     int i;
 }
 ```
-End{multicols}
+\End{multicols}
 
 | ESP32 | BH1750 | ML8511 |
 | --- | --- | --- |
