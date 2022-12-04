@@ -1,3 +1,40 @@
+---
+papersize: a4
+documentclass: article
+header-includes:
+    - \usepackage{multicol}
+    - \newcommand{\hideFromPandoc}[1]{#1}
+    - \hideFromPandoc{
+        \let\Begin\begin
+        \let\End\end
+      }
+
+...
+
+H1
+==============
+
+H2 - A
+--------------
+
+\Begin{multicols}{2}
+
+### H3 - a
+Blah blah blah...
+
+### H3 - b
+Blah blah blah...
+
+### H3 - c
+Blah blah blah...
+
+\End{multicols}
+
+H2 - B
+--------------
+Blah blah blah...
+
+
 # Projeto Protetor Solar
 
 ## Descrição
@@ -18,36 +55,6 @@ O projeto tem a função de coletar os dados do ambiente em que o usuário está
 Notas: 
 
 ### Conexões
-
----
-header-includes:
-- \usepackage{multicol}
-- \newcommand{\hideFromPandoc}[1]{#1}
-- \hideFromPandoc{
-    \let\Begin\begin
-    \let\End\end
-    }
----
-    
-# Rule 1
-Description for rule 1.
-    
-$ \begin{multicols}{2}
-## Good
-```c
-int foo (void) 
-{
-    int i;
-}
-```
-    
-## Bad
-```c
-int foo (void) {
-    int i;
-}
-```
-\end{multicols} $
 
 | ESP32 | BH1750 | ML8511 |
 | --- | --- | --- |
