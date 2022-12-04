@@ -19,35 +19,35 @@ Notas:
 
 ### Conexões
 
-    ---
-    header-includes:
-        - \usepackage{multicol}
-        - \newcommand{\hideFromPandoc}[1]{#1}
-        - \hideFromPandoc{
-            \let\Begin\begin
-            \let\End\end
-          }
-    ---
-    
-    # Rule 1
-    Description for rule 1.
-    
-    \Begin{multicols}{2}
-    ## Good
-    ```c
-    int foo (void) 
-    {
-        int i;
+---
+header-includes:
+- \usepackage{multicol}
+- \newcommand{\hideFromPandoc}[1]{#1}
+- \hideFromPandoc{
+    \let\Begin\begin
+    \let\End\end
     }
-    ```
+---
     
-    ## Bad
-    ```c
-    int foo (void) {
-        int i;
-    }
-    ```
-    \End{multicols}
+# Rule 1
+Description for rule 1.
+    
+\Begin{multicols}{2}
+## Good
+```c
+int foo (void) 
+{
+    int i;
+}
+```
+    
+## Bad
+```c
+int foo (void) {
+    int i;
+}
+```
+End{multicols}
 
 | ESP32 | BH1750 | ML8511 |
 | --- | --- | --- |
