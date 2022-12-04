@@ -32,7 +32,7 @@ header-includes:
 # Rule 1
 Description for rule 1.
     
-\Begin{multicols}{2}
+\begin{multicols}{2}
 ## Good
 ```c
 int foo (void) 
@@ -47,7 +47,7 @@ int foo (void) {
     int i;
 }
 ```
-\End{multicols}
+\end{multicols}
 
 | ESP32 | BH1750 | ML8511 |
 | --- | --- | --- |
