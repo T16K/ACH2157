@@ -4,9 +4,6 @@
 #include <BH1750.h>
 #include <Wire.h>
 
-#include <Arduino.h>
-#include <ML8511.h>
-
 const char* ssid = "SSID";   // your network SSID (name) 
 const char* password = "password";   // your network password
 
@@ -36,6 +33,7 @@ void setup() {
   pinMode(UVOUT, INPUT);
   pinMode(REF_3V3, INPUT);
 
+  WiFi.mode(WIFI_MODE_STA);
   WiFi.begin(ssid, password); 
 }
 
