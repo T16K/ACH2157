@@ -1,37 +1,36 @@
-# Controlar uma fechadura usando o navegador.
-
-![Operando com o navegador, via wifi.](./docs/wifi.gif)
-
+# Projeto Protetor Solar
 
 ## Descrição
 
-Na animação, a fechadura foi acessada em 192.168.0.11:3000. Digitar esse endereço (número) na barra de endereço do navegador faz este mostrar a página do digitalLocker.
-
-Clicar no botão OFF para abrir, clicar no botão ON para fechar.
-
-O NodeMCU conecta-se ao wifi local e funciona como um servidor web. Quando o programa é iniciado, o IP é mostrado no REPL ou na IDE que você estiver usando. Navegar para <IP>:3000 o que mostra a página com dois botões. O programa executado pelo Node é `digitalLocker.py`.
+O objetivo projeto é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto, com isso se tornando uma forma mais acessível do **UV Camera for Sunscreen Test**. 
 
 ### Lista de Materiais
 
 | Quantidade | Nome | Link para referência |
 | --- | --- | --- |
-| 1 | NodeMCU com ESP32 e cabo USB | https://www.usinainfo.com.br/nodemcu/esp32-nodemcu-iot-com-wifi-e-bluetooth-30-pinos-5147.html |
-| 1 | Servomotor Tower Pro SG90 | https://www.filipeflop.com/produto/micro-servo-9g-sg90-towerpro/ |
+| 1 | Placa de desenvolvimento ESP-WROOM-32 e cabo USB | https://www.amazon.com.br/gp/product/B09491Q4F6/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&psc=1 |
+| 1 | Sensor de Luz Ultravioleta UV ML8511 | https://www.institutodigital.com.br/produto/sensor-de-luz-ultravioleta-uv-ml8511/ |
+| 1 | Módulo GY-30 Sensor de Luminosidade – BH1750FVI | https://www.institutodigital.com.br/produto/modulo-gy-30-medidor-de-iluminancia-bh1750fvi/ |
 | X | Jumpers variados | --- |
 | {0,1} | protoboard | --- |
-| {0,1} | fonte de alimentação - 4 pilhas e um suporte | https://www.baudaeletronica.com.br/suporte-para-4-pilhas-aa.html |
+| {0,1} | fonte de alimentação - powerbank | --- |
 
-Notas: É possível fazer a montagem somente com jumpers (sem protoboard) e recebendo energia do computador através da porta USB. Talvez seja a situação mais comum. Entretanto, há computadores que não fornecem energia suficiente através da porta USB, em outros casos, o acionamento do motor causa falha da comunicação entre computador e NodeMCU. Nesses casos pode ser conveniente usar uma fonte externa de energia (ex. pilhas, carregador de celular, ...).
+Notas: 
 
 ### Conexões
 
-| Pino do NodeMCU | Pino do Motor | Pino das pilhas |
+| ESP32 | BH1750 | ML8511 |
 | --- | --- | --- |
-| 25 | Laranja | --- |
-| GND | Marrom | Preto (Negativo das pilhas) |
-| --- | Vermelho | Vermelho (Positivo das pilhas |
+| 5V | VCC | --- |
+| 3.3V | --- | 3.3V |
+| GND | GND | GND |
+| GPIO 22 | SCL | --- |
+| GPIO 21 | SDA | --- | 
+| GPIO 2 | --- | OUT |
+| 3.3V = GPIO 4 | --- | --- |
+| 3.3V | --- | EN |
 
-**Nota**: Não conectar qualquer outro pino do NodeMCU ou do motor ao positivo das pilhas. Isso conecta 6V ao Node ou ao motor, o que pode (não necessariamente vai) danificar o Node e/ou a porta USB do computador.
+Notas: Essas duas últimas conexões são um pouco diferentes. Conectar o ```pino EN``` no breakout a ```3.3V``` para ativar o dispositivo. Conectar também o ```pino 3,3V``` do ESP32 ao pino analógico ```GPIO 4``` do ESP32.
 
 ## Explica como montar o dispositivo físico
 
