@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O objetivo projeto é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto, com isso se tornando uma forma mais acessível do **UV Camera for Sunscreen Test**. 
+O projeto tem a função de coletar os dados do ambiente em que o usuário está inserido, e além disso se conectar com a internet (e.g. ponto de acesso do celular) para enviar os dados ao [ThingSpeak](https://thingspeak.com/). E por fim, atualizar o aplicativo responável por alertar o usuário à reaplicar seu protetor solar.
 
 ### Lista de Materiais
 
@@ -19,6 +19,15 @@ Notas:
 
 ### Conexões
 
+::: {}
+  ::: {.column width="40%"}
+    table ...
+  :::
+  ::: {.column width="60%"}
+    graph ...
+  :::
+:::
+
 | ESP32 | BH1750 | ML8511 |
 | --- | --- | --- |
 | 5V | VCC | --- |
@@ -26,15 +35,15 @@ Notas:
 | GND | GND | GND |
 | GPIO 22 | SCL | --- |
 | GPIO 21 | SDA | --- | 
-| GPIO 2 | --- | OUT |
-| 3.3V = GPIO 4 | --- | --- |
+| GPIO 34 | --- | OUT |
+| 3.3V = GPIO 35 | --- | --- |
 | 3.3V | --- | EN |
 
-Notas: Essas duas últimas conexões são um pouco diferentes. Conectar o ```pino EN``` no breakout a ```3.3V``` para ativar o dispositivo. Conectar também o ```pino 3,3V``` do ESP32 ao pino analógico ```GPIO 4``` do ESP32.
+Notas: Essas duas últimas conexões são um pouco diferentes. Conectar o `pino EN` no breakout a `3.3V` para ativar o dispositivo. Conectar também o `pino 3,3V` do ESP32 ao pino analógico `GPIO 35` do ESP32.
 
 ## Explica como montar o dispositivo físico
 
-Fazer as conexões listadas, configurar, transferir e executar `digitalLocker.py` no Node e navegar para o IP indicado pelo Node.
+Fazer as conexões listadas, configurar, transferir e executar [`main.ino`](/src/main.ino) no ESP32.
 
 ## Arquitetura e organização
 
