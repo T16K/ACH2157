@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O projeto tem a função de coletar os dados do ambiente em que o usuário está inserido, e além disso se conectar com a internet (e.g. ponto de acesso do celular) para enviar os dados ao [ThingSpeak](https://thingspeak.com/). E por fim, atualizar o aplicativo responável por alertar o usuário à reaplicar seu protetor solar.
+O projeto tem a função de coletar os dados do ambiente em que o usuário está inserido, e além disso se conectar com a internet (e.g. ponto de acesso do celular) para enviar os dados ao [ThingSpeak](https://thingspeak.com/). E por fim, atualizar o aplicativo responável por alertar o usuário à reaplicar o protetor solar.
 
 ### Lista de Materiais
 
