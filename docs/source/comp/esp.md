@@ -55,7 +55,7 @@ Então agora apagar tudo do *flash* da placa *ESP32* com o seguinte comando:
 ```
 esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
 ```
-A partir daí, programar o *firmware* a partir do endereço 0x1000:
+A partir daí, programar o *firmware* usando o endereço 0x1000:
 ```
 esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 'nome_do_arquivo'.bin
 ```
@@ -67,9 +67,9 @@ Quando o comando for concluído, será possível executar códigos Python na pla
 
 ### Verificar a configuração do *MicroPython* na placa de desenvolvimento *ESP32*
 
-Então, como saber se o *MicroPython* está corretamente instalado na placa de desenvolvimento *ESP32*?
+- Então, como saber se o *MicroPython* está corretamente instalado na placa de desenvolvimento *ESP32*?
 
-Quando o *MicroPython* estiver corretamente instalado, será possível acessar o `REPL` em série com um programa de emulador de terminal.
+- Quando o *MicroPython* estiver corretamente instalado, será possível acessar o `REPL` em série com um programa de emulador de terminal.
 
 Por exemplo, usar o comando de tela se com o `rshell` instalado:
 ```
@@ -96,7 +96,7 @@ Depois de executar, seguir as instruções para ativar o *WebREPL* na placa *ESP
 
 ### Conectar sua placa ESP32 à sua rede de roteador
 
-Primeiro, use `rshell` para se conectar à sua placa *ESP32* via conexão serial:
+Primeiro, usar `rshell` para se conectar à sua placa *ESP32* via conexão serial:
 ```
 rshell -p /dev/tty.SLAB_USBtoUART -b 115200 --editor nvim
 ```
