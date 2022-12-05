@@ -12,7 +12,7 @@ Alimentado por tecnologia de 40 nm, o *ESP32* fornece uma plataforma robusta e a
 
 O *Espressif* fornece recursos básicos de *hardware* e *software* para ajudar os desenvolvedores de aplicativos a realizar as ideias usando o *hardware* da série *ESP32*. A estrutura de desenvolvimento de *software* da *Espressif* destina-se ao desenvolvimento de aplicações de Internet das Coisas (IoT) com *Wi-Fi*, *Bluetooth*, gerenciamento de energia e vários outros recursos do sistema.
 
-Para esse projeto usei o [*MicroPython*](https://docs.micropython.org/en/latest/esp32/quickref.html). Usar o *MicroPython* é uma ótima maneira de aproveitar ao máximo a placa *ESP32*. E vice-versa, o chip *ESP32* é uma ótima plataforma para usar o *MicroPython*. Esta seção guiará através da configuração do *MicroPython*, obtendo um prompt, usando WebREPL, conectando-se à rede e se comunicando com a Internet.
+Para esse projeto foi utilizado o [*MicroPython*](https://docs.micropython.org/en/latest/esp32/quickref.html). Usar o *MicroPython* é uma ótima maneira de aproveitar ao máximo a placa *ESP32*. E vice-versa, o chip *ESP32* é uma ótima plataforma para usar o *MicroPython*. Esta seção guiará através da configuração do *MicroPython*, obtendo um prompt, usando WebREPL, conectando-se à rede e se comunicando com a Internet.
 
 ## Como configurar o *MicroPython* na placa de desenvolvimento *ESP32* para executar aplicativos *Python*
 
@@ -22,32 +22,29 @@ Informações gerais sobre a [porta *ESP32*](https://docs.micropython.org/en/lat
 
 Primeiro é preciso baixar o *firmware MicroPython* (arquivo .bin) para carregar no dispositivo *ESP32*. Ele está disponível na [página de downloads do *MicroPython*](https://micropython.org/download/esp32/).
 
-### Colocando o *MicroPython* no *ESP32*
+### Colocar o *MicroPython* no *ESP32*
 
-Com isso, é necessário ter permissão para acessar a porta ``` \dev\ttyUSB0 ```,
+- Com isso, é necessário ter permissão para acessar a porta ``` \dev\ttyUSB0 ```,
 ```
 sudo chmod 666 /dev/ttyUSB0 
 ```
 mas ao desconectar o dispositivo USB e reconectar ele, será necessário refazer o comando.
 
-<br />
 
-Depois que o computador for capaz de se comunicar com sua placa de desenvolvimento *ESP32*, instalar o [```esptool```](https://github.com/espressif/esptool) com,
+- Depois que o computador for capaz de se comunicar com sua placa de desenvolvimento *ESP32*, instalar o [```esptool```](https://github.com/espressif/esptool) com,
 ```
 pip install esptool
 ```
 
-<br />
-
-Então agora apagamos tudo do *flash* da sua placa *ESP32* com o seguinte comando:
+- Então agora apagar tudo do *flash* da placa *ESP32* com o seguinte comando:
 ```
 esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
 ```
-A partir daí, programe o firmware a partir do endereço 0x1000:
+- A partir daí, programe o firmware a partir do endereço 0x1000:
 ```
 esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 'nome_do_arquivo'.bin
 ```
-Quando o comando for concluído, você poderá executar códigos Python em sua placa ESP32 via MicroPython.
+- Quando o comando for concluído, será possível executar códigos Python na placa *ESP32* via *MicroPython*.
 
 ### Verificando sua configuração do *MicroPython* em sua placa de desenvolvimento *ESP32*
 
