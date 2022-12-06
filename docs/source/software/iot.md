@@ -1,3 +1,3 @@
 # *IoT analytics*
 
-Usaremos o coletor de dados [ThingSpeak](https://thingspeak.com/)
+Para coletar os dados, será usado o [ThingSpeak](https://thingspeak.com/)

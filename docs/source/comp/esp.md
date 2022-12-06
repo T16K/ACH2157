@@ -14,25 +14,13 @@ O *Espressif* fornece recursos básicos de *hardware* e *software* para ajudar o
 
 Para esse projeto foi utilizado o [*MicroPython*](https://docs.micropython.org/en/latest/esp32/quickref.html). Usar o *MicroPython* é uma ótima maneira de aproveitar ao máximo a placa *ESP32*. E vice-versa, o chip *ESP32* é uma ótima plataforma para usar o *MicroPython*. Esta seção guiará através da configuração do *MicroPython*, obtendo um prompt, usando WebREPL, conectando-se à rede e se comunicando com a Internet.
 
-
-
-
-
 ## Como configurar o *MicroPython* na placa de desenvolvimento *ESP32* para executar aplicativos *Python*
 
 Informações gerais sobre a [porta *ESP32*](https://docs.micropython.org/en/latest/esp32/general.html).
 
-
-
-
-
 ### Baixar uma cópia do *MicroPython* no *ESP32*
 
 Primeiro é preciso baixar o *firmware MicroPython* (arquivo .bin) para carregar no dispositivo *ESP32*. Ele está disponível na [página de downloads do *MicroPython*](https://micropython.org/download/esp32/).
-
-
-
-
 
 ### Colocar o *MicroPython* no *ESP32*
 
@@ -61,10 +49,6 @@ esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 
 ```
 Quando o comando for concluído, será possível executar códigos Python na placa *ESP32* via *MicroPython*.
 
-
-
-
-
 ### Verificar a configuração do *MicroPython* na placa de desenvolvimento *ESP32*
 
 - Então, como saber se o *MicroPython* está corretamente instalado na placa de desenvolvimento *ESP32*?
@@ -78,10 +62,6 @@ repl
 ```
 Para ver o *MicroPython*, pressionar `Ctrl-D` para iniciar uma reinicialização suave. Neste momento, tentar executar alguns códigos *Python* no `REPL`.
 
-
-
-
-
 ## Como configurar o *MicroPython* [*WebREPL*](https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) na placa de desenvolvimento *ESP32*
 
 Agora, será possível habilitar o *WebREPL* na placa *ESP32*. Para isso, digitar o seguinte código no prompt `REPL`:
@@ -89,10 +69,6 @@ Agora, será possível habilitar o *WebREPL* na placa *ESP32*. Para isso, digita
 import webrepl_setup
 ```
 Depois de executar, seguir as instruções para ativar o *WebREPL* na placa *ESP32*.
-
-
-
-
 
 ### Conectar sua placa ESP32 à sua rede de roteador
 
@@ -123,10 +99,6 @@ Type "help()" for more information.
 ```
 Neste caso, usar ```ws://192.168.1.131:8266``` para conectar à placa de desenvolvimento *ESP32*. Se a placa de desenvolvimento *ESP32* estiver conectada à sua rede WiFi com sucesso, então será possível obter a URL para se conectar à sua placa.
 
-
-
-
-
 ### Usar o cliente *MicroPython WebREPL* para interagir com sua placa de desenvolvimento *ESP32*
 
 Nessa parte, será preciso baixar o [WebREPL](https://github.com/micropython/webrepl), para isso utilizar o SSH:
@@ -134,3 +106,16 @@ Nessa parte, será preciso baixar o [WebREPL](https://github.com/micropython/web
 git clone git@github.com:micropython/webrepl.git
 ```
 Depois de baixar, abrir o arquivo ```webrepl.html``` com o navegador.
+
+## Notas
+
+O ESP32 tem dois ADCs. Um deles, o ADC2, é usado ativamente pelo WiFi. 
+
+Da documentação da IDF: 
+---
+Since the ADC2 module is also used by the Wi-Fi, only one of them could get the preemption when using together, which means the adc2_get_raw() may get blocked until Wi-Fi stops, and vice versa. 
+---
+
+Isso significa que não será possível usar o ADC em nenhum dos canais ADC2 enquanto o WiFi estiver ativado: GPIO4, GPIO0, GPIO2, GPIO15, GPIO13, GPIO12, GPIO14, GPIO27, GPIO25 e GPIO26. 
+
+Mas poderá usar o ADC1, que usa pinos GPIO36, GPIO37, GPIO38, GPIO39, GPIO32, GPIO33, GPIO34 e GPIO35.
