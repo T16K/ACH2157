@@ -52,3 +52,5 @@ Referências
 
 https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/
 https://docs.micropython.org/en/latest/esp32/quickref.html
+https://datasheet.octopart.com/BH1750FVI-TR-Rohm-datasheet-25365051.pdf
+http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor
