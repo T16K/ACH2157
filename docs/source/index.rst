@@ -42,9 +42,10 @@ Os *Softwares*
 .. toctree::
     :maxdepth: 1
 
-    software/programa
     software/aplicativo
     software/iot
+    software/py
+    software/ino
     software/ide
 
 Referências
