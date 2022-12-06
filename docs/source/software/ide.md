@@ -1,10 +1,10 @@
 # Arduino IDE
 
-Nesta seção, eu vou mostrar as pesquisas que foram feitas para solucionar a parte da comunicação do *ESP32*, com o sensor [*GY-30*](../comp/sensor.md) e o site [*ThingSpeak*](https://thingspeak.com/).
+Nesta seção, será mostrado as pesquisas que foram feitas para solucionar a parte da comunicação do *ESP32*, com o [sensor solar](../comp/sensor.md) e o site [*ThingSpeak*](https://thingspeak.com/).
 
 ## Preparando Arduino IDE
 
-Então primerio eu instalei Arduino IDE, na versão mais recente pelo [site](https://www.arduino.cc/en/software).
+Então primerio instalar o Arduino IDE, na versão mais recente pelo [site](https://www.arduino.cc/en/software).
 
 Em seguida, é interessante adicionar a placa *ESP32* no Arduino IDE:
 - No Arduino IDE, **File** > **Preferences**.

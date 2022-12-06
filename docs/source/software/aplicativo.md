@@ -1,3 +1,3 @@
 # Aplicativo
 
-Para o aplicativo, usaremos o [MIT App Inventor](http://appinventor.mit.edu/)
+Será utilizado o [MIT App Inventor](http://appinventor.mit.edu/) para fazer o aplicativo.
