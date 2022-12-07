@@ -26,7 +26,7 @@ Esta seção foi dividindo em duas partes, a primeira será dos objetos físicos
 
 .. figure:: ../../img/esquema.png
 
-Os Componentes
+Componentes
 --------------
 
 .. toctree::
@@ -36,7 +36,7 @@ Os Componentes
     comp/sensor
     comp/bateria
 
-Os *Softwares*
+*Softwares*
 --------------
 
 .. toctree::
