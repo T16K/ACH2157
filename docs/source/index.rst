@@ -48,6 +48,27 @@ Os *Softwares*
     software/ino
     software/ide
 
+Pesquisa
+--------
+
+Uma recomendação comum de muitas agências de saúde pública é reaplicar o protetor solar a cada 2 a 3 horas, mas esta recomendação pode não ser a mais eficaz para minimizar a exposição ultravioleta da pele durante o tempo ao sol. Para os usuários de protetor solar, seria ideal aplicar protetor solar em locais expostos do corpo, 15 a 30 minutos antes de sair para o sol. E mais reaplicações são necessárias após atividades vigorosas que poderiam remover o protetor solar.
+
+Sobre a reaplicação do protetor solar, existem três importantes variáveis:
+- Fator de Proteção Solar (FPS);
+- Tempo desde a última aplicação;
+- Índice Ultravioleta;
+- Remoção do protetor solar;
+
+As duas primeiras variáveis estão bem relacionadas, como mostrado na figura, o comportamento dinâmico do FPS 1 (não protetor solar), FPS 15 e FPS 30 são mostrados. Após 12 MED (2 h no sol australiano), 80% da dose de queimaduras solares é atingida no pele de um indivíduo, mas apenas 40% quando um FPS 30 protetor solar é aplicado.
+
+.. figure:: ../../img/sun
+
+Além disso, o índice ultravioleta também precisa ser considerado, mas como o tempo para as pessoas sofrerem queimaduras na pele pode variar, será utilizado o gráfico apresentado pelo NOAA. O tempo limite para a reaplicação será de 120 minutos.
+
+.. figure:: ../../img/uv
+
+Por fim, existe a possibilidade de remoção não intencional por parte do usuário, como por exemplo a prática de exercício físico ou a presença de água, nesse caso, o tempo será reduzido pela metade, com um limite de 80 minutos.
+
 Referências
 -----------
 
@@ -55,3 +76,4 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/
 https://docs.micropython.org/en/latest/esp32/quickref.html
 https://datasheet.octopart.com/BH1750FVI-TR-Rohm-datasheet-25365051.pdf
 http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor
+https://www.researchgate.net/requests/attachment/107953839
