@@ -112,9 +112,8 @@ Depois de baixar, abrir o arquivo ```webrepl.html``` com o navegador.
 O ESP32 tem dois ADCs. Um deles, o ADC2, é usado ativamente pelo WiFi. 
 
 Da documentação da IDF: 
-```
-Since the ADC2 module is also used by the Wi-Fi, only one of them could get the preemption when using together, which means the adc2_get_raw() may get blocked until Wi-Fi stops, and vice versa. 
-```
+
+" Since the ADC2 module is also used by the Wi-Fi, only one of them could get the preemption when using together, which means the adc2_get_raw() may get blocked until Wi-Fi stops, and vice versa. "
 
 Isso significa que não será possível usar o ADC em nenhum dos canais ADC2 enquanto o WiFi estiver ativado: GPIO4, GPIO0, GPIO2, GPIO15, GPIO13, GPIO12, GPIO14, GPIO27, GPIO25 e GPIO26. 
 

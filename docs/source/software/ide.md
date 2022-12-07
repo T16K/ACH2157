@@ -2,7 +2,7 @@
 
 Nesta seção, será mostrado as pesquisas que foram feitas para solucionar a parte da comunicação do *ESP32*, com o [sensor solar](../comp/sensor.md) e o site [*ThingSpeak*](https://thingspeak.com/).
 
-## Preparando Arduino IDE
+## Preparar Arduino IDE
 
 Então primerio instalar o Arduino IDE, na versão mais recente pelo [site](https://www.arduino.cc/en/software).
 
@@ -16,25 +16,30 @@ Depois clicar no botão de "OK".
 - Abrir **Tools** > **Board:** > **Board Manager...**
 - Procurar por **ESP32** e instalar o "ESP32 by Espressif Systems".
 
-## Testando a Instalação
+## Testar a Instalação
 
-Agora eu conecto a placa *ESP32* no meu computador, e com o Arduino IDE:
-- Selecionar a placa no menu **Tools** > **Board:** (no meu caso foi [**ESP32-WROOM-DA Module**](https://www.amazon.com.br/gp/product/B09491Q4F6/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&psc=1))
-- Selecionar a porta **Tools** > **Port:** (no meu caso foi **/dev/ttyUSB0**)
-- No caso eu escolhi usar o arquivo exemplo **File** > **Examples** > **WiFi (ESP32)** > **WiFiScan**.
+Agora conectar a placa *ESP32* no computador, e com o Arduino IDE:
+- Selecionar a placa no menu **Tools** > **Board:** (no caso foi [**ESP32-WROOM-DA Module**](https://www.amazon.com.br/gp/product/B09491Q4F6/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&psc=1))
+- Selecionar a porta **Tools** > **Port:** (no caso foi `/dev/ttyUSB0`)
+- Foi escolhido usar o arquivo exemplo **File** > **Examples** > **WiFi (ESP32)** > **WiFiScan**.
 - Fazer o *Upload* do arquivo:
 ![upload](../../../img/upload.png)
-- Abrir o Arduino IDE *Serial Monitor* e colocar a taxa de transmissão em ```115200```:
+- Abrir o Arduino IDE *Serial Monitor* e colocar a taxa de transmissão em `115200`:
 ![monitor](../../../img/monitor.png)
 
-## Instalando a **Biblioteca BH1750**
-Existem várias bibliotecas para o sensor *BH1750*. Eu escolhi usar a [biblioteca BH1750 por Christopher Laws](https://github.com/claws/BH1750).
+## Utilizar a **Biblioteca BH1750**
+Existem várias bibliotecas para o sensor *BH1750*. Foi escolhido usar a [biblioteca BH1750 por Christopher Laws](https://github.com/claws/BH1750).
 - Abrir o Arduino IDE, **Sketch** > **Include Library** > **Manage Libraries**.
 - Buscar "BH1750" na caixa de pesquisa e instalar a *biblioteca BH1750 por Christopher Laws*.
-- Para testar eu usei o arquivo exemplo **File** > **Examples** > **BH1750** > **BH1750test**.
-- Depois de dar *Upload* com sucesso, abra o *Serial Monitor* a uma taxa de transmissão em ```9600``` e pressione o botão **RST** no *ESP32*:
+- Para testar foi utilizado o arquivo exemplo **File** > **Examples** > **BH1750** > **BH1750test**.
+- Depois de dar *Upload* com sucesso, abrir o *Serial Monitor* a uma taxa de transmissão em `9600` e pressionar o botão **RST** no *ESP32*:
 ![luz](../../../img/luz.png)
 
-## Instalando a **Biblioteca ThingSpeak**
+## Utilizar a **Biblioteca ThingSpeak**
 
-Para enviar leituras de sensores para o *ThingSpeak*, usei a biblioteca *thingspeak-arduino*. Para instalar: Sketch > Include Library > Manage Libraries... e procure por "**ThingSpeak**" no *Library Manager*. Instalei a biblioteca *ThingSpeak* pelo *MathWorks*.
+- Para enviar leituras de sensores para o *ThingSpeak*, usar a biblioteca *thingspeak-arduino*. 
+- Para instalar: Sketch > Include Library > Manage Libraries... e procurar por "**ThingSpeak**" no *Library Manager*. 
+- Instalar a biblioteca *ThingSpeak* pelo *MathWorks*.
+- Para fins de teste foi escolhido o arquivo exemplo **File** > **Examples** > **ThingSpeak** > **ESP32** > **WriteSingleField**.
+- Seguir https://www.mathworks.com/help/thingspeak/collect-data-in-a-new-channel.html
+- No arquivo `secrets.h` substituir os valores de `"MySSID"`, `"MyPassword"`, `000000` e `"XYZ"`.

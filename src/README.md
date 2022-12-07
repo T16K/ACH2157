@@ -1,0 +1,3 @@
+This code uses the network, usocket, utime, bh1750, and ml8511 modules to connect to WiFi, read data from two sensors (BH1750 light sensor and ML8511 UV sensor), and send the data to ThingSpeak. It first sets the credentials for connecting to WiFi and ThingSpeak, and defines three functions: connect_wifi(), send_data(), and read_sensors(). The connect_wifi() function creates a new WiFi interface and connects to the WiFi network using the provided credentials. The send_data() function sends the given data to ThingSpeak using the provided API key. The read_sensors() function reads data from the BH1750 and ML8511 sensors and returns the values.
+
+The code then creates instances of the BH1750 and ML8511 sensors, and enters an infinite loop where it continuously reads data

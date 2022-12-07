@@ -8,7 +8,7 @@ Para o projeto será utilizado o **BH1750 – Ambient Light Sensor** e o **ML851
 
 O *BH1750* é um sensor de luz ambiente de 16 *bits* que se comunica através do [**protocolo I2C**](https://github.com/FNakano/CFA/tree/master/projetos/I2C). Produz medições de luminosidade em *lux* (unidade derivada de SI de iluminação). Pode medir um mínimo de 1 *lux* e um máximo de 65535 *lux*.
 
-## Características do *BH1750*
+### Características do *BH1750*
 
 Aqui está uma lista dos recursos do sensor BH1750. Para mais informações consultar o [**BH1750 sensor datasheet**](https://datasheet.octopart.com/BH1750FVI-TR-Rohm-datasheet-25365051.pdf).
 - Interface I2C 
@@ -20,7 +20,7 @@ Aqui está uma lista dos recursos do sensor BH1750. Para mais informações cons
 - Suporta modo de medição contínua 
 - Suporta o modo de medição único
 
-## Modos de Medição
+### Modos de Medição
 
 O sensor suporta dois modos de medição diferentes: *continuous measurement mode* e *one-time measurement mode*. Cada modo suporta três modos de resolução diferentes.
 
@@ -32,7 +32,7 @@ O sensor suporta dois modos de medição diferentes: *continuous measurement mod
 
 No *continuous measurement mode*, o sensor mede continuamente os valores da luz ambiente. No *one-time measurement mode*, o sensor mede o valor da luz ambiente uma vez, e então ele vai para o modo de desligamento.
 
-## BH1750 Pinout
+### BH1750 Pinout
 
 | Pinout | Descrição |
 | :---: | :---: |
@@ -46,7 +46,7 @@ O pino ADD é usado para definir o endereço do sensor I2C. Se a tensão nesse p
 - Ignorar o pino ou conectar ao `GND` → endereço: `0x23` 
 - Adicionar pino conectado ao `VCC` → endereço: `0x5C`
 
-## BH1750 Interface I2C
+### BH1750 Interface I2C
 
 O sensor de luz ambiente BH1750 suporta interface I2C. Conectar o sensor BH1750 ao ESP32 usando os pinos I2C padrão:
 
@@ -55,7 +55,7 @@ O sensor de luz ambiente BH1750 suporta interface I2C. Conectar o sensor BH1750 
 | SCL | `GPIO 22` |
 | SDA | `GPIO 21` |
 
-## Esquema – ESP32 com BH1750
+### Esquema – ESP32 com BH1750
 
 ![diagrama](../../../img/diagrama.png)
 
@@ -77,7 +77,7 @@ O ML8511 é um sensor de luz ultravioleta fácil de usar. O sensor UV MP8511 emi
 
 Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizado como parte do espectro UVB (raios de queima) e a maior parte do espectro UVA (raios bronzeadores).
 
-## Características do *ML8511*
+### Características do *ML8511*
 
 - Fotodiodo sensível a UV-A e UV-B 
 - Amplificador operacional incorporado 
@@ -85,7 +85,7 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 - Baixa corrente de alimentação (300A typ.) e baixa corrente de espera (0,1A typ.) 
 - Pacote de montagem em superfície pequeno e fino (4,0 mm x 3,7 mm x 0,73 mm, QFN cerâmico de 12 pinos)
 
-## ML8511 Pinout
+### ML8511 Pinout
 
 | ML8511 | Descrição |
 | :---: | :---: |
@@ -95,7 +95,7 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 | OUT | Saída (Baixo consumo de energia desligado ou modo de espera) |
 | EN | Pin de alta habilitação (Alto: Modo ativo, Baixo: Modo de espera) |
 
-## Esquema – ESP32 com ML8511
+### Esquema – ESP32 com ML8511
 
 ![diagrama2](../../../img/diagrama2.png)
 
@@ -109,3 +109,13 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 | --- | 3.3V = `GPIO 35` |
 
 Essas duas últimas conexões do ML8511 são um pouco diferentes. Conectar o `pino EN` no breakout a `3.3V` para ativar o dispositivo. Conectar também o `pino 3,3V` do ESP32 ao pino analógico `GPIO 35` do ESP32.
+
+### Aumentar a precisão do ML8511
+
+Com isso, é necessário um ADC do ESP32 mais preciso na tensão UV, para isso:
+```C
+UV_Voltage / uvLevel = 3.3 / refLevel
+```
+`uvLevel` é o que é lido do pino `OUT`. `refLevel` é o que é lido no pino de 3,3V. Resolvendo para `UV_Voltage`, é possível obter uma leitura precisa.
+
+![uv](../../../img/uv.png)
