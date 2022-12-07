@@ -53,7 +53,7 @@ Pesquisa
 
 Uma recomendação comum de muitas agências de saúde pública é reaplicar o protetor solar a cada 2 a 3 horas, mas esta recomendação pode não ser a mais eficaz para minimizar a exposição ultravioleta da pele durante o tempo ao sol. Para os usuários de protetor solar, seria ideal aplicar protetor solar em locais expostos do corpo, 15 a 30 minutos antes de sair para o sol. E mais reaplicações são necessárias após atividades vigorosas que poderiam remover o protetor solar.
 
-Sobre a reaplicação do protetor solar, existem três importantes variáveis:
+Sobre a reaplicação do protetor solar, existem quatro importantes variáveis:
     - Fator de Proteção Solar (FPS);
     - Tempo desde a última aplicação;
     - Índice Ultravioleta;
