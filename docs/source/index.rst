@@ -69,6 +69,10 @@ Além disso, o índice ultravioleta também precisa ser considerado, mas como o 
 
 Por fim, existe a possibilidade de remoção não intencional por parte do usuário, como por exemplo a prática de exercício físico ou a presença de água, nesse caso, o tempo será reduzido pela metade, com um limite de 80 minutos.
 
+No programa, as variaveis serao computadas da seguinte forma:
+
+$$ t_f = \dfrac{t_i * f}{u} $$
+
 Referências
 -----------
 
@@ -77,3 +81,5 @@ https://docs.micropython.org/en/latest/esp32/quickref.html
 https://datasheet.octopart.com/BH1750FVI-TR-Rohm-datasheet-25365051.pdf
 http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor
 https://www.researchgate.net/requests/attachment/107953839
+https://www.skincabin.com/guides/how-often-to-reapply-sunscreen/
+https://pubmed.ncbi.nlm.nih.gov/11712033/
