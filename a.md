@@ -10,7 +10,7 @@ O projeto tem a função de coletar os dados do ambiente em que o usuário está
 | :---: | :---: | :---: |
 | 1 | Placa de desenvolvimento ESP-WROOM-32 e cabo USB | https://www.amazon.com.br/gp/product/B09491Q4F6/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&psc=1 |
 | 1 | Sensor de Luz Ultravioleta UV ML8511 | https://www.institutodigital.com.br/produto/sensor-de-luz-ultravioleta-uv-ml8511/ |
-[//]: < > (| 1 | Módulo GY-30 Sensor de Luminosidade – BH1750FVI | https://www.institutodigital.com.br/produto/modulo-gy-30-medidor-de-iluminancia-bh1750fvi/ |)
+<!-- | 1 | Módulo GY-30 Sensor de Luminosidade – BH1750FVI | https://www.institutodigital.com.br/produto/modulo-gy-30-medidor-de-iluminancia-bh1750fvi/ | -->
 | X | Jumpers variados | --- |
 | {0,1} | protoboard | --- |
 | {0,1} | fonte de alimentação - powerbank | --- |
