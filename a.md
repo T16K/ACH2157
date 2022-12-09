@@ -10,7 +10,6 @@ O projeto tem a função de coletar os dados do ambiente em que o usuário está
 | :---: | :---: | :---: |
 | 1 | Placa de desenvolvimento ESP-WROOM-32 e cabo USB | https://www.amazon.com.br/gp/product/B09491Q4F6/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&psc=1 |
 | 1 | Sensor de Luz Ultravioleta UV ML8511 | https://www.institutodigital.com.br/produto/sensor-de-luz-ultravioleta-uv-ml8511/ |
-<!-- | 1 | Módulo GY-30 Sensor de Luminosidade – BH1750FVI | https://www.institutodigital.com.br/produto/modulo-gy-30-medidor-de-iluminancia-bh1750fvi/ | -->
 | X | Jumpers variados | --- |
 | {0,1} | protoboard | --- |
 | {0,1} | fonte de alimentação - powerbank | --- |
@@ -19,30 +18,11 @@ Notas:
 
 ### Conexões
 
-<table>
-<tr><th>Conexões BH1750 </th><th>Conexões ML8511</th></tr>
-<tr><td>
-
-| ESP32 | BH1750 |
-| :---: | :---: |
-| 5V | VCC |
-| GND | GND |
-| GPIO 22 | SCL |
-| GPIO 21 | SDA |
-
-</td><td>
-
 | ESP32 | ML8511 |
 | :---: | :---: |
 | 3.3V | 3.3V |
 | GND | GND |
 | GPIO 34 | OUT |
-| 3.3V | EN |
-| 3.3V = GPIO 35 | --- |
-
-</td></tr> </table>
-
-Notas: Essas duas últimas conexões do ML8511 são um pouco diferentes. Conectar o `pino EN` no breakout a `3.3V` para ativar o dispositivo. Conectar também o `pino 3,3V` do ESP32 ao pino analógico `GPIO 35` do ESP32.
 
 ## Explica como montar o dispositivo físico
 
