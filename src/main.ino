@@ -14,7 +14,7 @@ unsigned long lastTime = 0;
 unsigned long timerDelay = 30000;
 
 int UVOUT = 34; //Output from the sensor
-int REF_3V3 = 35; //3.3V power on the ESP32 board
+//int REF_3V3 = 35; //3.3V power on the ESP32 board
 
 void setup() {
   Serial.begin(115200);  // Initialize serial 
@@ -58,10 +58,11 @@ void loop() {
     }
 
     int uvLevel = averageAnalogRead(UVOUT);
-    int refLevel = averageAnalogRead(REF_3V3);
+    //int refLevel = averageAnalogRead(REF_3V3);
   
     //Use the 3.3V power pin as a reference to get a very accurate output value from sensor
-    float outputVoltage = 3.3 / refLevel * uvLevel;
+    //float outputVoltage = 3.3 / refLevel * uvLevel;
+    float outputVoltage = 3.3 / 4095 * uvLevel;
 
     //Convert the voltage to a UV intensity level
     float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0); 

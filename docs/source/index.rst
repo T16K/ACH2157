@@ -78,6 +78,10 @@ No programa, as variaveis serao computadas da seguinte forma:
 - :math:`f`, o fator de protecao solar, do protetor solar do usuario;
 - :math:`u`, o indice ultravioleta do ambiente;
 
+Para calcular o tempo medio que leva para o usuario para se queimar, em funcao do indice ultravioleta do ambiente:
+
+:math:`t_i = \dfrac{66}{u}`
+
 Referências
 -----------
 

@@ -110,6 +110,8 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 
 Essas duas últimas conexões do ML8511 são um pouco diferentes. Conectar o `pino EN` no breakout a `3.3V` para ativar o dispositivo. Conectar também o `pino 3,3V` do ESP32 ao pino analógico `GPIO 35` do ESP32.
 
+Para fins do projeto, as duas ultimas conexoes foram retiradas.
+
 ### Aumentar a precisão do ML8511
 
 Com isso, é necessário um ADC do ESP32 mais preciso na tensão UV, para isso:
@@ -117,5 +119,7 @@ Com isso, é necessário um ADC do ESP32 mais preciso na tensão UV, para isso:
 UV_Voltage / uvLevel = 3.3 / refLevel
 ```
 `uvLevel` é o que é lido do pino `OUT`. `refLevel` é o que é lido no pino de 3,3V. Resolvendo para `UV_Voltage`, é possível obter uma leitura precisa.
+
+Para fins do projeto, `refLevel` foi transformado em uma constante de valor 4095.
 
 ![uv](../../../img/uv.png)

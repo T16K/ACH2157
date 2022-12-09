@@ -5,7 +5,7 @@ Nesta seção, será explicado o código que foi utilizado para testar a leitura
 ```C
 //Hardware pin definitions
 int UVOUT = 34; //Output from the sensor
-int REF_3V3 = 35; //3.3V power on the Arduino board
+//int REF_3V3 = 35; //3.3V power on the Arduino board
 
 //The Arduino Map function but for floats
 //From: http://forum.arduino.cc/index.php?topic=3922.0
@@ -33,7 +33,7 @@ void setup()
   Serial.begin(9600);
 
   pinMode(UVOUT, INPUT);
-  pinMode(REF_3V3, INPUT);
+  //pinMode(REF_3V3, INPUT);
 
   Serial.println("ML8511 example");
 }
@@ -44,7 +44,8 @@ void loop()
   int refLevel = averageAnalogRead(REF_3V3);
 
   //Use the 3.3V power pin as a reference to get a very accurate output value from sensor
-  float outputVoltage = 3.3 / refLevel * uvLevel;
+  //float outputVoltage = 3.3 / refLevel * uvLevel;
+  float outputVoltage = 3.3 / 4095 * uvLevel;
 
   //Convert the voltage to a UV intensity level
   float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0); 
