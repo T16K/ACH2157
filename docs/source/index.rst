@@ -71,7 +71,7 @@ Por fim, existe a possibilidade de remoção não intencional por parte do usuá
 
 No programa, as variaveis serao computadas da seguinte forma:
 
-:math:`t_f = \dfrac{t_i * f}{u}`
+:math:`t_f = \frac{t_i \cdot f}{u}`
 
 - :math:`t_f`, o tempo ate a proxima reaplicacao do protetor solar;
 - :math:`t_i`, o tempo medio que leva para o usuario para se queimar;
