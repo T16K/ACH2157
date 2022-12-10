@@ -23,7 +23,7 @@ void setup() {
   ThingSpeak.begin(client);  // Initialize ThingSpeak
 
   pinMode(UVOUT, INPUT);
-  pinMode(REF_3V3, INPUT); 
+  //pinMode(REF_3V3, INPUT); 
 }
 
 // Takes an average of readings on a given pin
