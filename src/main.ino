@@ -2,7 +2,7 @@
 #include "ThingSpeak.h"
 
 const char* ssid = "MySSID";   // replace MySSID with your WiFi network name
-const char* pass = "MyPassword";   // replace MyPassword with your WiFi password
+const char* password = "MyPassword";   // replace MyPassword with your WiFi password
 
 WiFiClient  client;
 
