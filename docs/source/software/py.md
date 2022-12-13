@@ -116,7 +116,7 @@ border-radius: 4px; color: white; padding: 16px 40px; text-decoration: none; fon
 
 Depois de criar o *HTML* para construir a página da Web, é necessário criar um *socket* para receber as solicitações e enviar o texto *HTML* em resposta. Para uma melhor compreensão, a figura a seguir mostra um diagrama sobre como criar *socket* para interação servidor-cliente:
 
-![socket](../../../img/socket.png)
+![socket](../../img/socket.png)
 
 <br />
 
