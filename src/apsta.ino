@@ -24,9 +24,13 @@ const int output27 = 27;
 
 void setup() {
   Serial.begin(115200);
+
+  WiFi.mode(WIFI_MODE_APSTA);
+
   // Initialize the output variables as outputs
   pinMode(output26, OUTPUT);
   pinMode(output27, OUTPUT);
+
   // Set outputs to LOW
   digitalWrite(output26, LOW);
   digitalWrite(output27, LOW);

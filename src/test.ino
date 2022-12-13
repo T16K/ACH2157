@@ -18,9 +18,6 @@ const char * myWriteAPIKey = "98PNN4DP3RW17W4P"; // replace XYZ with your channe
 unsigned long lastTime = 0;
 unsigned long timerDelay = 30000;
 
-int UVOUT = 34; //Output from the sensor
-//int REF_3V3 = 35; //3.3V power on the ESP32 board
-
 void setup() {
   Serial.begin(115200);  // Initialize serial 
 
