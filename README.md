@@ -113,18 +113,6 @@ Em função do valor, o eixo do motor é girado a mais ou a menos:
 
 Ao final, a página é reenviada (não precisaria), para permitir um novo comando abre/fecha, junto com um código de resposta `HTTP-200` que significa OK (https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
-## Referências
+## Referência
 
-https://randomnerdtutorials.com/esp32-esp8266-micropython-web-server/
-https://docs.micropython.org/en/latest/esp8266/tutorial/network_tcp.html#http-get-request
-
-
-## Colaborar usando github (meta)
-
-A maneira indicada pelo mantenedor do github para colaborar com projetos hospedados nele é através de bifurcação e pull request: https://stackoverflow.com/questions/32750228/how-to-contribute-to-someone-elses-repository.
-
-É possível ser colaborador do projeto e fazer pull/push (https://stackoverflow.com/questions/42619669/how-to-make-branch-from-friends-repository), mas isto pode gerar confusão (quando fiz isso com outra pessoa eu a confundi e ela acabou reiniciando o repositório - `git init` - não foi um bom resultado).
-
-Quando procurei essa informação, nas postagens, encontrei um material interessante sobre a organização (interna) do git: https://stackoverflow.com/tags/git/info
-
-Sobre bifurcação: https://docs.github.com/pt/get-started/quickstart/fork-a-repo, https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.
+https://t16k-ach2157.rtfd.io

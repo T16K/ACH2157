@@ -6,7 +6,7 @@ O que é isso?
 
 Esse é o projeto final da **Disciplina: ACH2157 - Computação Física e Aplicações**: https://github.com/FNakano/CFA
 
-Nele está sendo proposto o uso do aplicativo **PROTETOR SOLAR**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
+Nele serão mostrados as coisas que foram desenvolvidas durante o semestre e propor o uso do aplicativo **PROTETOR SOLAR**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
 
 Inspiração
 ^^^^^^^^^^
@@ -22,9 +22,9 @@ Referência para o conceito de hábito: https://sites.google.com/view/sources-ch
 Como funciona?
 ^^^^^^^^^^^^^^
 
-Esta seção foi dividindo em duas partes, a primeira será dos objetos físicos que serão responsáveis por avaliar o contexto do usuário, e a segunda que são os programas para interpretar esse contexto e devolver uma decisão.
+Esta seção foi dividinda em duas partes, a primeira será dos objetos físicos que serão responsáveis por avaliar o contexto do usuário, e a segunda que são os programas para interpretar esse contexto e devolver uma decisão.
 
-.. figure:: ../../img/esquema.png
+.. figure:: ../img/esquema.png
 
 Componentes
 --------------
@@ -34,7 +34,6 @@ Componentes
 
     comp/esp
     comp/sensor
-    comp/bateria
 
 *Softwares*
 --------------
@@ -61,24 +60,24 @@ Sobre a reaplicação do protetor solar, existem quatro importantes variáveis:
 
 As duas primeiras variáveis estão bem relacionadas, como mostrado na figura, o comportamento dinâmico do FPS 1 (não protetor solar), FPS 15 e FPS 30 são mostrados. Após 12 MED (2 h no sol australiano), 80% da dose de queimaduras solares é atingida no pele de um indivíduo, mas apenas 40% quando um FPS 30 protetor solar é aplicado.
 
-.. figure:: ../../img/sun
+.. figure:: ../img/sun
 
 Além disso, o índice ultravioleta também precisa ser considerado, mas como o tempo para as pessoas sofrerem queimaduras na pele pode variar, será utilizado o gráfico apresentado pelo NOAA. O tempo limite para a reaplicação será de 120 minutos.
 
-.. figure:: ../../img/uv
+.. figure:: ../img/uv
 
 Por fim, existe a possibilidade de remoção não intencional por parte do usuário, como por exemplo a prática de exercício físico ou a presença de água, nesse caso, o tempo será reduzido pela metade, com um limite de 80 minutos.
 
-No programa, as variaveis serao computadas da seguinte forma:
+No programa, as variáveis serão computadas da seguinte forma:
 
 :math:`t_f = \dfrac{t_i \cdot f}{u}`
 
-- :math:`t_f`, o tempo ate a proxima reaplicacao do protetor solar;
-- :math:`t_i`, o tempo medio que leva para o usuario para se queimar;
-- :math:`f`, o fator de protecao solar, do protetor solar do usuario;
-- :math:`u`, o indice ultravioleta do ambiente;
+- :math:`t_f`, o tempo até a próxima reaplicação do protetor solar;
+- :math:`t_i`, o tempo médio que leva para o usuário para se queimar;
+- :math:`f`, o fator de proteção solar, do protetor solar do usuário;
+- :math:`u`, o índice ultravioleta do ambiente;
 
-Para calcular o tempo medio que leva para o usuario para se queimar, em funcao do indice ultravioleta do ambiente:
+Para calcular o tempo médio que leva para o usuário se queimar, em função do índice ultravioleta do ambiente:
 
 :math:`t_i = \dfrac{66}{u}`
 

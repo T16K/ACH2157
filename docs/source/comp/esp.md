@@ -105,7 +105,7 @@ Nessa parte, será preciso baixar o [WebREPL](https://github.com/micropython/web
 ```
 git clone git@github.com:micropython/webrepl.git
 ```
-Depois de baixar, abrir o arquivo ```webrepl.html``` com o navegador.
+Depois de baixar, abrir o arquivo `webrepl.html` com o navegador.
 
 ## Notas
 
