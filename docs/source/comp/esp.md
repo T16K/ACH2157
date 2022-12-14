@@ -81,7 +81,7 @@ Uma vez que o `rshell` é iniciado, execute o seguinte comando para editar `boot
 ```
 edit /pyboard/boot.py
 ```
-Quando o seu editor `neovim` carregar `boot.py`, edite-o para parecer com o [seguinte](../software/programa.md).
+Quando o seu editor `neovim` carregar `boot.py`, edite-o para parecer com o [seguinte](../../prog/py/boot.py).
 
 Altere `your_ssid` e `your_password` para as credenciais `(SSID, senha WiFi)` da rede WiFi de 2.4GHz. Quando terminar as alterações, digitar `:x` e pressionar `Enter` para salvar as alterações.
 Depois de editar o `boot.py`, entrar no *MicroPython REPL*:
