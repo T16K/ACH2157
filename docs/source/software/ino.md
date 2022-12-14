@@ -65,7 +65,19 @@ void loop() {
 }
 ```
 
-Primeiro, é interessante mapear o [`UV_Voltage`](https://t16k-ach2157.readthedocs.io/en/latest/comp/esp.html#notas). Nenhuma luz UV começa em 1V e possui um máximo de 15mW/cm² em torno de 2.8V. O Arduino tem uma função map() embutida, mas map() não funciona para floats, mas graças aos usuários no fórum Arduino, existe uma simples função mapFloat():
+### Definir os pinos
+
+Primeiro é interessante notar que os pinos escolhidos foram os `GPIO 34` e `GPIO 35`
+```C
+//Hardware pin definitions
+int UVOUT = 34; //Output from the sensor
+int REF_3V3 = 35; //3.3V power on the Arduino board
+```
+Foi escolhido dessa forma, porque o [ESP32 possui dois ADCs](https://t16k-ach2157.readthedocs.io/en/latest/comp/esp.html#notas)
+
+### Calcular o `uvIntensity`
+
+Em seguida, é interessante [aumentar a precisão do `outputVoltage`](https://t16k-ach2157.readthedocs.io/en/latest/comp/sensor.html#aumentar-a-precisao-do-ml8511) para mapeá-lo. Nenhuma luz UV começa em 1V, e possui um máximo de 15mW/cm² em torno de 2.8V. O Arduino tem uma função map() embutida, mas map() não funciona para floats, mas graças aos usuários no fórum Arduino, existe uma simples função mapFloat():
 ```C
 float mapfloat(float x, float in_min, float in_max, float out_min, float out_max)
 {
@@ -73,9 +85,7 @@ float mapfloat(float x, float in_min, float in_max, float out_min, float out_max
 }
 ```
 
-<br />
-
-A próxima linha é responsável por converte a tensão lida do sensor em intensidade mW/cm²:
+Com isso, é possível converte a tensão lida do sensor em intensidade mW/cm²:
 ```C
 float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0);
 ```
