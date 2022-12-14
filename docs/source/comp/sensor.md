@@ -4,7 +4,7 @@ Para o projeto será utilizado o **BH1750 – Ambient Light Sensor** e o **ML851
 
 ## Introduzindo o *BH1750 Ambient Light Sensor*
 
-![bh1750](../../img/bh1750)
+![bh1750](../../../img/bh1750)
 
 O *BH1750* é um sensor de luz ambiente de 16 *bits* que se comunica através do [**protocolo I2C**](https://github.com/FNakano/CFA/tree/master/projetos/I2C). Produz medições de luminosidade em *lux* (unidade derivada de SI de iluminação). Pode medir um mínimo de 1 *lux* e um máximo de 65535 *lux*.
 
@@ -57,7 +57,7 @@ O sensor de luz ambiente BH1750 suporta interface I2C. Conectar o sensor BH1750 
 
 ### Esquema – ESP32 com BH1750
 
-![diagrama](../../img/diagrama.png)
+![diagrama](../../../img/diagrama.png)
 
 | BH1750 | ESP32 |
 | :---: | :---: |
@@ -71,7 +71,7 @@ Ao não conectar o pino ADD, será selecionado o endereço I2C `0x23`. Conectar 
 
 ## Introduzindo o *ML8511 UV Sensor*
 
-![ml8511](../../img/ml8511)
+![ml8511](../../../img/ml8511)
 
 O ML8511 é um sensor de luz ultravioleta fácil de usar. O sensor UV MP8511 emite um sinal analógico em relação à quantidade de luz UV que detecta. Isso pode ser útil na criação de dispositivos que avisam o usuário de queimaduras solares ou detectam o índice UV no que se refere às condições climáticas. 
 
@@ -97,7 +97,7 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 
 ### Esquema – ESP32 com ML8511
 
-![diagrama2](../../img/diagrama2.png)
+![diagrama2](../../../img/diagrama2.png)
 
 | ML8511 | ESP32 |
 | :---: | :---: |
@@ -122,4 +122,4 @@ UV_Voltage / uvLevel = 3.3 / refLevel
 
 Para fins do projeto, `refLevel` foi transformado em uma constante de valor 4095.
 
-![uv](../../img/uv.png)
+![uv](../../../img/uv.png)

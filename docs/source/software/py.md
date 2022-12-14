@@ -6,7 +6,7 @@ Nesta seção, serão utilizados os arquivo *boot.py* e *socket.py*.
 
 - O arquivo *socket.py* conterá o código que executa o servidor *web* para servir arquivos e executar tarefas com base nas solicitações recebidas pelo cliente.
 
-## [*boot.py*](../../prog/py/boot.py)
+## [*boot.py*](../../../prog/py/boot.py)
 
 ```py
 def do_connect(ssid, pwd):
@@ -84,7 +84,7 @@ import webrepl
 webrepl.start()
 ```
 
-## [*socket.py*](../../prog/py/socket.py)
+## [*socket.py*](../../../prog/py/socket.py)
 
 ```py
 try:
@@ -189,7 +189,7 @@ border-radius: 4px; color: white; padding: 16px 40px; text-decoration: none; fon
 
 Depois de criar o *HTML* para construir a página da Web, é necessário criar um *socket* para receber as solicitações e enviar o texto *HTML* em resposta. Para uma melhor compreensão, a figura a seguir mostra um diagrama sobre como criar *socket* para interação servidor-cliente:
 
-![socket](../../img/socket.png)
+![socket](../../../img/socket.png)
 
 <br />
 

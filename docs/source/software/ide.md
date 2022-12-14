@@ -23,9 +23,9 @@ Agora conectar a placa *ESP32* no computador, e com o Arduino IDE:
 - Selecionar a porta **Tools** > **Port:** (no caso foi `/dev/ttyUSB0`)
 - Foi escolhido usar o arquivo exemplo **File** > **Examples** > **WiFi (ESP32)** > **WiFiScan**.
 - Fazer o *Upload* do arquivo:
-![upload](../../img/upload.png)
+![upload](../../../img/upload.png)
 - Abrir o Arduino IDE *Serial Monitor* e colocar a taxa de transmissão em `115200`:
-![monitor](../../img/monitor.png)
+![monitor](../../../img/monitor.png)
 
 ## Utilizar a **Biblioteca BH1750**
 Existem várias bibliotecas para o sensor *BH1750*. Foi escolhido usar a [biblioteca BH1750 por Christopher Laws](https://github.com/claws/BH1750).
@@ -33,7 +33,7 @@ Existem várias bibliotecas para o sensor *BH1750*. Foi escolhido usar a [biblio
 - Buscar "BH1750" na caixa de pesquisa e instalar a *biblioteca BH1750 por Christopher Laws*.
 - Para testar foi utilizado o arquivo exemplo **File** > **Examples** > **BH1750** > **BH1750test**.
 - Depois de dar *Upload* com sucesso, abrir o *Serial Monitor* a uma taxa de transmissão em `9600` e pressionar o botão **RST** no *ESP32*:
-![luz](../../img/luz.png)
+![luz](../../../img/luz.png)
 
 ## Utilizar a **Biblioteca ThingSpeak**
 
