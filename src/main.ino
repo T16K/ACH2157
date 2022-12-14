@@ -4,10 +4,10 @@
 const char* ssid = "MySSID";   // replace MySSID with your WiFi network name
 const char* password = "MyPassword";   // replace MyPassword with your WiFi password
 
-WiFiClient  client;
-
 unsigned long myChannelNumber = 0000000; // replace 0000000 with your channel number
 const char * myWriteAPIKey = "XYZ"; // replace XYZ with your channel write API Key
+
+WiFiClient  client;
 
 // Timer variables
 unsigned long lastTime = 0;

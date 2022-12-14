@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O projeto tem a função de coletar os dados do ambiente em que o usuário está inserido, e além disso se conectar com a internet (e.g. ponto de acesso do celular) para enviar os dados ao [ThingSpeak](https://thingspeak.com/). E por fim, atualizar o aplicativo responável por alertar o usuário à reaplicar o protetor solar.
+O projeto busca avisar o usuário, o momento mais adequado para a reaplicação do protetor solar. Para isso, foi utilizado um sensor de coleta de dados do ambiente, um controlador para viabilizar o envio desses dados para o site em que serão processados, e por fim, um aplicativo para receber a resposta desse site, para atualizar o usuário. 
 
 ### Lista de Materiais
 
@@ -13,8 +13,6 @@ O projeto tem a função de coletar os dados do ambiente em que o usuário está
 | X | Jumpers variados | --- |
 | {0,1} | protoboard | --- |
 | {0,1} | fonte de alimentação - powerbank | --- |
-
-Notas: 
 
 ### Conexões
 
@@ -30,88 +28,114 @@ Fazer as conexões listadas, configurar, transferir e executar [`main.ino`](/src
 
 ## Arquitetura e organização
 
-Figura 1 - Feito usando yEd, arquivo-fonte da figura em /docs/Rede.graphml:
+Figura 1 - Esquema do projeto, arquivo-fonte da figura em /img/esquema.png:
 
-![rede](/docs/Rede.png)
+![esquema](/img/esquema.png)
 
-O dispositivo (digitalLocker) conecta-se ao ponto de acesso wi-fi como um cliente wi-fi e obtém um endereço IP local. Através do navegador, outros dispositivos podem navegar (fazer requisições HTTP) para o endereço IP e receberão como resposta uma página web contendo dois botões. Clicar nos botões causa o envio de uma nova requisição (HTTP:GET) que, quando recebida pelo digitalLocker, causa o giro do servo motor e o envio da resposta para o navegador.
+Primeiro os dados são coletados, utilizando o sensor (ML8511), e em seguida utilizando o controlador (ESP32), esses dados são interpretados e convertidos na escala [Índice Ultravioleta](https://pt.wikipedia.org/wiki/%C3%8Dndice_ultravioleta). Além disso, o controlador também é responsável por conectar-se à internet (e.g. ponto de acesso do celular) como um cliente wi-fi, e enviar as informações para o site [ThingSpeak](https://thingspeak.com/).
 
-O dispositivo pode ser visto como a interconexão do motor com o modem wifi (embutido no controlador) e o controlador. A interface entre o programador e o hardware do controlador é feita através de Micropython. O programa `digitalLocker.py` contém os comandos para conectar ao wifi (como cliente), funcionar como um servidor web e controlar o motor. Uma ilustração é apresentada na figura 2.
+Com isso, o aplicativo servirá como uma interface para o usuário, tanto para enviar dados adicionas ao site, quanto para receber a resposta. No app, ao escolher as opções mais adequadas para o contexto do usuário, o site recebe essas informações e consegue prever o tempo estimado para a próxima reaplicação do protetor solar, e por fim, devolve esse valor para o aplicativo que vai atualizar o usuário.
 
-Figura 2- Feito usando yEd, arquivo-fonte da figura em /docs/layerModel.graphml:
+## Explica como o sensor funciona
 
-![camadas](/docs/layerModel.png)
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/comp/sensor.html#introduzindo-o-ml8511-uv-sensor)
 
+## Explica como processar os dados do sensor
 
-## Explica como usar o programa
-
-Para executar `digitalLocker.py` no Node, este deve estar carregado com Micropython. Instruções sobre como carregar Micropython neste [link externo](https://github.com/FNakano/CFA/tree/master/programas/Micropython). Depois de carregar, ou transferir o programa ou executá-lo usando, por exemplo WebREPL (instruções neste [link externo]()https://github.com/FNakano/CFA/tree/master/programas/Micropython/webREPL), ou o método que preferir. No exemplo, uso Thonny e envio `digitalLocker.py` para o Node. No arquivo é definida a função `startServer()`. Desta forma, no REPL, digitar `import digitalLocker` para importar a função e digitar `digitalLocker.startServer()` para iniciar o servidor. Isto é mais cômodo que executar os comandos um por um, seja digitando, seja com copy-paste.
-
-## Explica como o motor funciona
-
-![Quando tiver vídeo da operação com navegador, transferir este para a explicação do servo.](./docs/output.gif)
-
-O servomotor é um motor em que o eixo gira menos de uma volta e o ângulo de giro do eixo pode ser controlado. O motor específico desta montagem permite ângulos entre zero e 180 graus (especificação técnica: http://www.datasheet-pdf.com/PDF/SG90-Datasheet-TowerPro-791970). Este motor recebe energia pelos fios marrom (GND) e vermelho (VCC). A tensão de alimentação pode ser algo entre 4V e 7.2V. Nesta montagem será 6V. O fio laranja conduz o sinal de controle para o motor.
-
-O sinal de controle é um trem de pulsos de 20ms (50Hz), com duração do patamar em nível 1 variando entre 1 e 2ms. O ângulo de giro é proporcional à duração do patamar em nível 1. Por exemplo, com pulsos de 1,5ms durante o intervalo de 20ms, o ângulo de giro é de 90 graus (aproximadamente); com pulsos de 2ms, o ângulo é de 180 graus (https://www.engineersgarage.com/servo-motor-sg90-9g-with-89c51-microcontroller/). Esse tipo de sinal pertence à categoria dos sinais em *Pulse Width Modulation* (PWM).
-
-Um sinal PWM é especificado pela frequência e pelo ciclo de carga (*duty-cycle*). O ciclo de carga é o percentual do tempo em que o sinal fica em nível 1 comparado com o período todo do sinal. Por exemplo, um sinal de 50Hz tem período de 20ms. Se o ciclo de carga for 20%, durante 20% desse período (ié 4ms), o sinal fica em nível 1 e o restante do tempo (16ms) fica em nível zero. Se o ciclo de carga for 50%, o patamar 1 dura 10ms e o patamar zero dura 10ms.
-
-## Explica como enviar comandos para o motor
-
-O ESP32 tem geradores PWM com frequência e ciclo de carga (*duty-cycle*) ajustáveis. O ciclo de carga é codificado como um inteiro entre 0 e 1023, que correspode (linearmente) ao ciclo de carga de zero até 100%. Como o motor responde a um sinal de duração de 1-2ms, o comando do ESP vai de aprox. 50-100.
-
-Para usá-los com Micropython, digitando o programa abaixo, o servo é colocado em um ângulo perto de zero. `motor.duty()` pode ser executados com outros valores, por exemplo, 60, 100, 120, para diferentes ângulos.
-
-```python
-from machine import Pin, PWM
-p25 = Pin(25, Pin.OUT)         # configura o pino 25 como saída
-motor = PWM(p25, freq=50)      # configura o pino 25 como PWM a 50Hz
-motor.duty(40)                 # o patamar 1 dura 40/1024 do período 
-```
-Fonte: https://docs.micropython.org/en/latest/esp8266/tutorial/pwm.html#control-a-hobby-servo
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/ino.html#programas-ino)
 
 ## Explica como o programa foi feito
 
-```python
-p25 = Pin(25, Pin.OUT)
-motor = PWM(p25, freq=50)
-motor.duty(40)
+### Bibliotecas
+
+Primeiro foram incluídas duas bibliotecas:
+```C
+#include <WiFi.h>
+#include "ThingSpeak.h"
 ```
-Fonte: https://docs.micropython.org/en/latest/esp8266/tutorial/pwm.html#control-a-hobby-servo
+- A [primeira](https://github.com/arduino-libraries/WiFi), habilita a conexão de rede (local e Internet) usando o Arduino WiFi shield.
+- A [segunda](https://github.com/mathworks/thingspeak-arduino) permite que o controlador escreva ou leia dados de ou para o ThingSpeak.
 
-```python
-s.bind(('', 3000))   # bind to port 3000 https://docs.micropython.org/en/latest/library/socket.html#socket.socket.bind
-s.listen(2)  # allow for 2 connection before refusing https://docs.micropython.org/en/latest/library/socket.html#socket.socket.listen
-```
+### Wifi
 
-Uma requisição GET é feita (pelo navegador) concatenando, à URL (que endereça a requisição para o servidor), os parâmetros, no formato `?<id>=<valor>` no texto da requisição.
-
-```python
-    request = conn.recv(1024)  # get bytes https://docs.micropython.org/en/latest/library/socket.html#socket.socket.recv
-    request = str(request)     # convert to string
-```
-
-Sobre o texto (string) da requisição, busca-se o parâmetro do GET:
-
-```python
-locker_on = request.find('/?locker=on') # find get request text https://www.w3schools.com/python/ref_string_find.asp
-```
-
-Em função do valor, o eixo do motor é girado a mais ou a menos:
-
-```python
-    if locker_on == 6:
-        print('LOCKER ON')
-        motor.duty(110)
-        locker_state = "ON"
-    if locker_off == 6:
-        print('LOCKER OFF')
-        motor.duty(40)
-        locker_state = "OFF"
+Para a conexão com o ponto de acesso,
+```C
+if(WiFi.status() != WL_CONNECTED) {
+  Serial.print("Attempting to connect to SSID: ");
+  while(WiFi.status() != WL_CONNECTED) {
+    WiFi.begin(ssid, password); // Connect to WPA/WPA2 network.
+    Serial.print(".");
+    delay(5000);     
+  } 
+  Serial.println("\nConnected.");
+}
 ```
 
-Ao final, a página é reenviada (não precisaria), para permitir um novo comando abre/fecha, junto com um código de resposta `HTTP-200` que significa OK (https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+### ThingSpeak
+
+Para o controlador comunicar com o site, enviando o valor do índice ultravioleta.
+```C
+ThingSpeak.setField(1, uvIntensity);
+       
+int x = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
+
+if(x == 200) {
+  Serial.println("Channel update successful.");
+}
+else {
+  Serial.println("Problem updating channel. HTTP error code " + String(x));
+}
+```
+
+### Pinos
+
+Para a entrada do controlador foi [escolhido](https://t16k-ach2157.readthedocs.io/en/latest/comp/esp.html#notas) o `GPIO 34`:
+```C
+int UVOUT = 34;
+```
+
+O valor do pino irá passar por uma função para tirar a média das medidas:
+```C
+int averageAnalogRead(int pinToRead) {
+  byte numberOfReadings = 8;
+  unsigned int runningValue = 0; 
+
+  for(int x = 0 ; x < numberOfReadings ; x++)
+    runningValue += analogRead(pinToRead);
+  runningValue /= numberOfReadings;
+
+  return(runningValue);  
+}
+```
+
+Esse valor será utilizado para calcular o [valor da voltagem](https://t16k-ach2157.readthedocs.io/en/latest/comp/sensor.html#aumentar-a-precisao-do-ml8511) que o sensor emite.
+```C
+int uvLevel = averageAnalogRead(UVOUT);
+float outputVoltage = 3.3 / 4095 * uvLevel;
+```
+
+### Converter a Voltagem para o Índice Ultravioleta
+
+Então primeiro, foi utilizado o pino `GPIO 34` para encontrar a voltagem.
+Depois, é necessário utilizar uma função de [mapeamento](http://forum.arduino.cc/index.php?topic=3922.0), para converter a voltagem em mW/cm².
+```C
+float mapfloat(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+```
+
+Com isso, utilizando a seguinte [informação](https://cdn.sparkfun.com/datasheets/Sensors/LightImaging/ML8511_3-8-13.pdf), é possível assumir que nehuma luz UV começa em 1V, e além disso possui um máximo de 15 mW/cm² em torno de 2.8V.
+```C
+float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0);
+```
+
+## Explica como o site foi utilizado
+
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#iot-analytics)
+
+## Explica como o aplicativo funciona
+
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/aplicativo.html#aplicativo)
 
 ## Referência
 
