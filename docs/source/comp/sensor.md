@@ -110,7 +110,7 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 
 Essas duas últimas conexões do ML8511 são um pouco diferentes. Conectar o `pino EN` no breakout a `3.3V` para ativar o dispositivo. Conectar também o `pino 3,3V` do ESP32 ao pino analógico `GPIO 35` do ESP32.
 
-Para fins do projeto, as duas ultimas conexoes foram retiradas.
+Para fins do projeto, as duas últimas conexões foram retiradas.
 
 ### Aumentar a precisão do ML8511
 

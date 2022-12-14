@@ -1,6 +1,6 @@
 # Arduino IDE
 
-Nesta seção, será mostrado as pesquisas que foram feitas para solucionar a parte da comunicação do *ESP32*, com o [sensor solar](../comp/sensor.md) e o site [*ThingSpeak*](https://thingspeak.com/).
+Nesta seção, será mostrado as pesquisas que foram feitas para solucionar a parte da comunicação do *ESP32*, com o [sensor solar](../comp/sensor.md) e o [*ThingSpeak*](iot.md).
 
 ## Preparar Arduino IDE
 
@@ -41,5 +41,5 @@ Existem várias bibliotecas para o sensor *BH1750*. Foi escolhido usar a [biblio
 - Para instalar: Sketch > Include Library > Manage Libraries... e procurar por "**ThingSpeak**" no *Library Manager*. 
 - Instalar a biblioteca *ThingSpeak* pelo *MathWorks*.
 - Para fins de teste foi escolhido o arquivo exemplo **File** > **Examples** > **ThingSpeak** > **ESP32** > **WriteSingleField**.
-- Seguir https://www.mathworks.com/help/thingspeak/collect-data-in-a-new-channel.html
+- Seguir [essas](https://www.mathworks.com/help/thingspeak/collect-data-in-a-new-channel.html) instruções.
 - No arquivo `secrets.h` substituir os valores de `"MySSID"`, `"MyPassword"`, `000000` e `"XYZ"`.

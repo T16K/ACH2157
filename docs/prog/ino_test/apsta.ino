@@ -1,12 +1,12 @@
 #include <WiFi.h>
 
 // SSID & Password
-const char* ssid = "SSID";  // Enter your SSID here
-const char* password = "13742654800";  //Enter your Password here
+const char* ssid = "ssid";  // Enter your SSID here
+const char* password = "password";  //Enter your Password here
 
 // SSID & Password
-const char* ap_ssid = "ESP32";  // Enter your SSID here
-const char* ap_password = "13742654800";  //Enter your Password here
+const char* ap_ssid = "ap_ssid";  // Enter your AP_SSID here
+const char* ap_password = "ap_password";  //Enter your AP_Password here
 
 // Set web server port number to 80
 WiFiServer server(80);

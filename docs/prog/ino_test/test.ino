@@ -6,13 +6,13 @@
 
 BH1750 lightMeter;
 
-const char* ssid = "SSID";   // replace MySSID with your WiFi network name
-const char* pass = "13742654800";   // replace MyPassword with your WiFi password
+const char* ssid = "MySSID";   // replace MySSID with your WiFi network name
+const char* pass = "MyPassword";   // replace MyPassword with your WiFi password
 
 WiFiClient  client;
 
-unsigned long myChannelNumber = 1; // replace 0000000 with your channel number
-const char * myWriteAPIKey = "98PNN4DP3RW17W4P"; // replace XYZ with your channel write API Key
+unsigned long myChannelNumber = 0000000; // replace 0000000 with your channel number
+const char * myWriteAPIKey = "XYZ"; // replace XYZ with your channel write API Key
 
 // Timer variables
 unsigned long lastTime = 0;
@@ -45,11 +45,13 @@ void loop() {
     float lux = lightMeter.readLightLevel();
     float fps = 30;
     float r = 0;
+    float n = 50;
 
     // set the fields with the values
     ThingSpeak.setField(1, lux);
     ThingSpeak.setField(2, fps);
     ThingSpeak.setField(3, r);
+    ThingSpeak.setField(4, n);
        
     // Write to ThingSpeak. There are up to 8 fields in a channel, allowing you to store up to 8 different
     // pieces of information in a channel.  Here, we write to field 1.

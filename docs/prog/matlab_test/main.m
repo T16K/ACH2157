@@ -1,5 +1,5 @@
 readChId =  1901003;
-writeChId = 1975950;  % replace with your channel number
+writeChId = 1975950;  % Replace with your channel number
 
 writeKey = '2HKHT6XPUGB6ZFCE'; % Replace with your channel write key
 
@@ -11,6 +11,7 @@ n = thingSpeakRead(readChId,'Fields',4);
 % t = (i * fps) / uv
 % i = 66 / uv
 
+% Compute remain time value
 if r == 0
     t = (66 * fps) / (uv * uv);
     if t > 120 
@@ -23,6 +24,7 @@ else
     end
 end
 
+% Compute percentage
 p = (t - 5 * n) / t * 100;
 
 thingSpeakWrite(writeChId,[uv,t,p],'Fields',[1,2,3],...
