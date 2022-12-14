@@ -6,7 +6,7 @@ Nesta seção, serão utilizados os arquivo *boot.py* e *socket.py*.
 
 - O arquivo *socket.py* conterá o código que executa o servidor *web* para servir arquivos e executar tarefas com base nas solicitações recebidas pelo cliente.
 
-## [*boot.py*](../../../prog/py/boot.py)
+## *boot.py*
 
 ```py
 def do_connect(ssid, pwd):
@@ -84,7 +84,7 @@ import webrepl
 webrepl.start()
 ```
 
-## [*socket.py*](../../../prog/py/socket.py)
+## *socket.py*
 
 ```py
 try:

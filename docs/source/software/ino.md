@@ -2,7 +2,7 @@
 
 Nesta seção, será explicado o código que foi utilizado para testar a leitura do sensor ML8511, e converter a intensidade da voltagem para a intensidade em mW/cm².
 
-## [ml8511.ino](../../../prog/ino/ml8511.ino)
+## *ml8511.ino*
 
 ```C
 //Hardware pin definitions
