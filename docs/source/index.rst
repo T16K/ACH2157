@@ -24,7 +24,7 @@ Como funciona?
 
 Esta seção foi dividinda em duas partes, a primeira será dos objetos físicos que serão responsáveis por avaliar o contexto do usuário, e a segunda que são os programas para interpretar esse contexto e devolver uma decisão.
 
-.. figure:: ../img/esquema.png
+.. figure:: ../../img/esquema.png
 
 Componentes
 --------------
@@ -60,11 +60,11 @@ Sobre a reaplicação do protetor solar, existem quatro importantes variáveis:
 
 As duas primeiras variáveis estão bem relacionadas, como mostrado na figura, o comportamento dinâmico do FPS 1 (não protetor solar), FPS 15 e FPS 30 são mostrados. Após 12 MED (2 h no sol australiano), 80% da dose de queimaduras solares é atingida no pele de um indivíduo, mas apenas 40% quando um FPS 30 protetor solar é aplicado.
 
-.. figure:: ../img/sun
+.. figure:: ../../img/sun
 
 Além disso, o índice ultravioleta também precisa ser considerado, mas como o tempo para as pessoas sofrerem queimaduras na pele pode variar, será utilizado o gráfico apresentado pelo NOAA. O tempo limite para a reaplicação será de 120 minutos.
 
-.. figure:: ../img/uv
+.. figure:: ../../img/uv
 
 Por fim, existe a possibilidade de remoção não intencional por parte do usuário, como por exemplo a prática de exercício físico ou a presença de água, nesse caso, o tempo será reduzido pela metade, com um limite de 80 minutos.
 
