@@ -25,7 +25,7 @@ end
 percentage_decrease = 5 * number / initial_value;
 
 % Calculate the percentage the remaining percentage
-remaining_percentage = 100 * (1 - percentage_decrease)
+remaining_percentage = 100 * (1 - percentage_decrease);
     
 % Write the field
 thingSpeakWrite(writeChId,[remaining_percentage],'Fields',[1],...
