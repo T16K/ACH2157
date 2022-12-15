@@ -38,54 +38,13 @@ Com isso, o aplicativo servirá como uma interface para o usuário, tanto para e
 
 ## Explica como o sensor funciona
 
-Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/comp/sensor.html#introduzindo-o-ml8511-uv-sensor)
+O ML8511 é um sensor de luz ultravioleta. Ele emite um sinal analógico em relação à quantidade de luz UV que detecta. Isso pode ser útil na criação de dispositivos que avisam o usuário de queimaduras solares ou detectam o índice UV no que se refere às condições climáticas. 
+
+Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizado como parte do espectro UVB (raios de queima) e a maior parte do espectro UVA (raios bronzeadores).
+
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/comp/sensor.html#introduzindo-o-ml8511-uv-sensor).
 
 ## Explica como processar os dados do sensor
-
-Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/ino.html#programas-ino)
-
-## Explica como o programa foi feito
-
-### Bibliotecas
-
-Primeiro foram incluídas duas bibliotecas:
-```C
-#include <WiFi.h>
-#include "ThingSpeak.h"
-```
-- A [primeira](https://github.com/arduino-libraries/WiFi), habilita a conexão de rede (local e Internet) usando o Arduino WiFi shield.
-- A [segunda](https://github.com/mathworks/thingspeak-arduino) permite que o controlador escreva ou leia dados de ou para o ThingSpeak.
-
-### Wifi
-
-Para a conexão com o ponto de acesso,
-```C
-if(WiFi.status() != WL_CONNECTED) {
-  Serial.print("Attempting to connect to SSID: ");
-  while(WiFi.status() != WL_CONNECTED) {
-    WiFi.begin(ssid, password); // Connect to WPA/WPA2 network.
-    Serial.print(".");
-    delay(5000);     
-  } 
-  Serial.println("\nConnected.");
-}
-```
-
-### ThingSpeak
-
-Para o controlador comunicar com o site, enviando o valor do índice ultravioleta.
-```C
-ThingSpeak.setField(1, uvIntensity);
-       
-int x = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
-
-if(x == 200) {
-  Serial.println("Channel update successful.");
-}
-else {
-  Serial.println("Problem updating channel. HTTP error code " + String(x));
-}
-```
 
 ### Pinos
 
@@ -129,13 +88,96 @@ Com isso, utilizando a seguinte [informação](https://cdn.sparkfun.com/datashee
 float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0);
 ```
 
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/ino.html#programas-ino).
+
+## Explica como a comunicação foi feita
+
+### Bibliotecas
+
+Primeiro foram incluídas duas bibliotecas:
+```C
+#include <WiFi.h>
+#include "ThingSpeak.h"
+```
+- A [primeira](https://github.com/arduino-libraries/WiFi), habilita a conexão de rede (local e Internet) usando o Arduino WiFi shield.
+- A [segunda](https://github.com/mathworks/thingspeak-arduino) permite que o controlador escreva ou leia dados de ou para o ThingSpeak.
+
+### WiFi.h
+
+Primeiro é necessário declarar as credenciais:
+```C
+const char* ssid = "MySSID";   // replace MySSID with your WiFi network name
+const char* password = "MyPassword";   // replace MyPassword with your WiFi password
+```
+
+Criar um cliente que pode se conectar a um endereço IP da Internet especificado e a uma porta.
+```C
+WiFiClient  client;
+```
+
+Configurar o modo de uso do wi-fi, no caso, foi escolhido que o controlador funcionasse como um cliente wireless,
+```C
+WiFi.mode(WIFI_MODE_STA);
+```
+
+Por fim, para a conexão com o ponto de acesso,
+```C
+if(WiFi.status() != WL_CONNECTED) {
+  Serial.print("Attempting to connect to SSID: ");
+  while(WiFi.status() != WL_CONNECTED) {
+    WiFi.begin(ssid, password); // Connect to WPA/WPA2 network.
+    Serial.print(".");
+    delay(5000);     
+  } 
+  Serial.println("\nConnected.");
+}
+```
+
+### ThingSpeak.h
+
+Primeiro é necessário declarar as credenciais:
+```C
+unsigned long myChannelNumber = 0000000; // replace 0000000 with your channel number
+const char * myWriteAPIKey = "XYZ"; // replace XYZ with your channel write API Key
+```
+
+Depois, inicializar o ThingSpeak:
+```C
+ThingSpeak.begin(client);
+```
+
+O controlador irá enviar as informações a cada 30 segundos,
+```C
+unsigned long lastTime = 0;
+unsigned long timerDelay = 30000;
+```
+```C
+if ((millis() - lastTime) > timerDelay) {
+  lastTime = millis();
+}
+```
+
+Para o controlador comunicar com o site, enviando o valor do índice ultravioleta.
+```C
+ThingSpeak.setField(1, uvIntensity);
+       
+int x = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
+
+if(x == 200) {
+  Serial.println("Channel update successful.");
+}
+else {
+  Serial.println("Problem updating channel. HTTP error code " + String(x));
+}
+```
+
 ## Explica como o site foi utilizado
 
-Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#iot-analytics)
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#iot-analytics).
 
 ## Explica como o aplicativo funciona
 
-Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/aplicativo.html#aplicativo)
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/aplicativo.html#aplicativo).
 
 ## Referência
 
