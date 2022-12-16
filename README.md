@@ -22,7 +22,7 @@ O projeto busca avisar o usuário, o momento mais adequado para a reaplicação 
 | GND | GND |
 | GPIO 34 | OUT |
 
-## Explica como montar o dispositivo físico
+## Como montar o dispositivo físico
 
 Fazer as conexões listadas, configurar, transferir e executar [`main.ino`](/src/main.ino) no ESP32.
 
@@ -36,7 +36,7 @@ Primeiro os dados são coletados, utilizando o sensor (ML8511), e em seguida uti
 
 Com isso, o aplicativo servirá como uma interface para o usuário, tanto para enviar dados adicionas ao site, quanto para receber a resposta. No app, ao escolher as opções mais adequadas para o contexto do usuário, o site recebe essas informações e consegue prever o tempo estimado para a próxima reaplicação do protetor solar, e por fim, devolve esse valor para o aplicativo que vai atualizar o usuário.
 
-## Explica como o sensor funciona
+## Como o sensor funciona
 
 O ML8511 é um sensor de luz ultravioleta. Ele emite um sinal analógico em relação à quantidade de luz UV que detecta. Isso pode ser útil na criação de dispositivos que avisam o usuário de queimaduras solares ou detectam o índice UV no que se refere às condições climáticas. 
 
@@ -44,7 +44,7 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/comp/sensor.html#introduzindo-o-ml8511-uv-sensor).
 
-## Explica como processar os dados do sensor
+## Como processar os dados do sensor
 
 ### Pinos
 
@@ -90,7 +90,7 @@ float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0);
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/ino.html#programas-ino).
 
-## Explica como a comunicação foi feita
+## Como a comunicação foi feita
 
 ### Bibliotecas
 
@@ -171,11 +171,30 @@ else {
 }
 ```
 
-## Explica como o site foi utilizado
+## Como o site foi utilizado
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#iot-analytics).
 
-## Explica como o aplicativo funciona
+## Como o aplicativo funciona
+Figura 2 - Tela principal do aplicativo em /img/app.jpg
+
+![app](/img/app.jpg)
+
+Para facilitar a comunicação entre o sistema e usuário, foi criada uma aplicação mobile utilizando o MIT App Inventor para que o usuário possa inserir as informações relacionadas a: horário da aplicação, fator de proteção solar, necessidade de alarme e se terá exposição a suor, piscina ou mar. Desta forma, interage com o intermediário ThingSpeak, que fará o cálculo e devolve para o aplicativo em quantos minutos deve-se reaplicar o protetor solar. 
+
+O esquema a seguir mostra a criação de variáveis globais, a programação em blocos do comportamento das variáveis e as funções de retorno das informações do ThingSpeak para o aplicativo. 
+
+Figura 3 - Configuração das variáveis globais em /img/variaveis_globais.png
+
+![variaveis_globais](/img/variaveis_globais.png)
+
+Figura 4 - Programação em blocos dos botões inseridos na tela /img/send_data.png
+
+![send_data](/img/send_data.png)
+
+Figura 5 - Retorno das informações processadas no ThinkSpeak /img/recieve_data.png
+
+![recieve_data](/img/recieve_data.png)
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/aplicativo.html#aplicativo).
 
