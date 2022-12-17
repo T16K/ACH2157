@@ -1,3 +1,5 @@
+# **INCOMPLETO**
+
 # Projeto Protetor Solar
 
 ## Descrição
@@ -22,7 +24,7 @@ O projeto busca avisar o usuário, o momento mais adequado para a reaplicação 
 | GND | GND |
 | GPIO 34 | OUT |
 
-## Como montar o dispositivo físico
+## Montagem do dispositivo físico
 
 Fazer as conexões listadas, configurar, transferir e executar [`main.ino`](/src/main.ino) no ESP32.
 
@@ -36,7 +38,7 @@ Primeiro os dados são coletados, utilizando o sensor (ML8511), e em seguida uti
 
 Com isso, o aplicativo servirá como uma interface para o usuário, tanto para enviar dados adicionas ao site, quanto para receber a resposta. No app, ao escolher as opções mais adequadas para o contexto do usuário, o site recebe essas informações e consegue prever o tempo estimado para a próxima reaplicação do protetor solar, e por fim, devolve esse valor para o aplicativo que vai atualizar o usuário.
 
-## Como o sensor funciona
+## Funcionamento do sensor
 
 O ML8511 é um sensor de luz ultravioleta. Ele emite um sinal analógico em relação à quantidade de luz UV que detecta. Isso pode ser útil na criação de dispositivos que avisam o usuário de queimaduras solares ou detectam o índice UV no que se refere às condições climáticas. 
 
@@ -44,7 +46,7 @@ Este sensor detecta a luz de 280-390nm de forma mais eficaz. Isso é categorizad
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/comp/sensor.html#introduzindo-o-ml8511-uv-sensor).
 
-## Como processar os dados do sensor
+## Processamento dos dados do sensor
 
 ### Pinos
 
@@ -90,7 +92,7 @@ float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0);
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/ino.html#programas-ino).
 
-## Como a comunicação foi feita
+## Comunicação do ESP32
 
 ### Bibliotecas
 
@@ -171,11 +173,12 @@ else {
 }
 ```
 
-## Como o site foi utilizado
+## Utilização do site
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#iot-analytics).
 
-## Como o aplicativo funciona
+## Funcionamento do aplicativo
+
 Figura 2 - Tela principal do aplicativo em /img/app.jpg
 
 ![app](/img/app.jpg)
