@@ -91,3 +91,31 @@ http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor
 https://www.researchgate.net/requests/attachment/107953839
 https://www.skincabin.com/guides/how-often-to-reapply-sunscreen/
 https://pubmed.ncbi.nlm.nih.gov/11712033/
+
+Melhorias
+---------
+
+O projeto foi desenvolvido durante o período do segundo semestre de 2022. Considerando que o período de desenvolvimento foi curto, ainda existem alguns problemas com o projeto e possíveis melhorias e implementações de funcionalidades. Aqui estão os pontos relevantes:
+
+Sobre o ESP32:
+- Para que o programa funcione, é necessário que para cada reaplicação do protetor solar, o botão `boot` seja precionado no ESP32;
+- Não é ideal o [programa]() enviar a variável `number` para o ThingSpeak;
+- Algumas vezes o ESP32 não consegue enviar os dados para o site (Error 401);
+- Implementar a opção do ESP32 funcionar como um Acess Point;
+- Implementar a opção de usar o código em Python;
+
+Sobre o ThingSpeak (MATLAB):
+- O [programa]() é incapaz de guardar o valor da variável `remain_percentage` para calcular com uma precisão maior o desgaste do protetor solar;
+- Não foi encontrado uma forma mais eficiente de calcular o tempo desde a primeira aplicação;
+- A resposta deveria conter a porcentagem de protetor solar restante, o horário de reaplicação em HH:MM, e a quantidade de tempo restante; 
+
+Sobre o Aplicativo:
+- A variável `lista` deveria conter mais opções, ou a possibilidade do usuário digitar o valor;
+- Melhorar interface para a resposta do Thingspeak;
+- Colocar a responsabilidade de enviar o horário para o aplicativo;
+
+Sobre a Pesquisa:
+- Não foi possível encontrar um número satisfatório de pesquisas sobre a reaplicação do protetor solar;
+- Não foi possível encontrar uma fórmula para descrever quando deveria ter a reaplicação do protetor solar;
+- Todo o cálculo foi baseado na interpretação das pesquisas que não tinham o objetivo de calcular o tempo de reaplicação do protetor solar;
+- Seria ideal fazer um experimento por conta própria para analisar o resultado com o esse objetivo;

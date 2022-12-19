@@ -45,7 +45,10 @@ void loop() {
     float lux = lightMeter.readLightLevel();
     float fps = 30;
     float r = 0;
-    float n = 50;
+    float n = 0;
+
+    // update every 30 second
+    n = n + 0.5;
 
     // set the fields with the values
     ThingSpeak.setField(1, lux);

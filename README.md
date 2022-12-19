@@ -205,6 +205,8 @@ Figura 5 - Retorno das informações processadas no ThinkSpeak /img/recieve_data
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/aplicativo.html#aplicativo).
 
+## Pesquisa
+
 ## Referência
 
 https://t16k-ach2157.rtfd.io

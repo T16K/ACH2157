@@ -14,6 +14,7 @@ unsigned long lastTime = 0;
 unsigned long timerDelay = 30000;
 
 int UVOUT = 34; //Output from the sensor
+float n = 0; // Update time
 
 void setup() {
   Serial.begin(115200);  // Initialize serial 
@@ -64,8 +65,12 @@ void loop() {
     // Convert the voltage to a UV intensity level
     float uvIntensity = mapfloat(outputVoltage, 0.99, 2.8, 0.0, 15.0); 
 
+    // Update time every 30 second
+    n = n + 0.5;
+
     // Set the fields with the values
     ThingSpeak.setField(1, uvIntensity);
+    thingSpeak.setfield(4, n);
        
     // Write to ThingSpeak
     int x = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
