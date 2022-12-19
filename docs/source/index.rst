@@ -4,9 +4,9 @@ Bem vindo à documentação PROTETOR SOLAR ☀️
 O que é isso?
 -------------
 
-Esse é o projeto final da **Disciplina: ACH2157 - Computação Física e Aplicações**: https://github.com/FNakano/CFA
+Essa é a documentação do que foi desenvolvido durante as aulas da **Disciplina: ACH2157 - Computação Física e Aplicações**: https://github.com/FNakano/CFA
 
-Nele serão mostrados as coisas que foram desenvolvidas durante o semestre e propor o uso do aplicativo **PROTETOR SOLAR**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
+Além disso, será mostrado alguns complementos do projeto, disponível no [github](https://github.com/T16K/ACH2157). A idéia é propor o uso do aplicativo **PROTETOR SOLAR**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
 
 Inspiração
 ^^^^^^^^^^
@@ -27,7 +27,7 @@ Esta seção foi dividinda em duas partes, a primeira será dos objetos físicos
 .. figure:: ../../img/esquema.png
 
 Componentes
---------------
+------------
 
 .. toctree::
     :maxdepth: 1
@@ -77,7 +77,7 @@ No programa, as variáveis serão computadas da seguinte forma:
 - :math:`f`, o fator de proteção solar, do protetor solar do usuário;
 - :math:`u`, o índice ultravioleta do ambiente;
 
-Para calcular o tempo médio que leva para o usuário se queimar, em função do índice ultravioleta do ambiente:
+Para calcular o [tempo médio]() que leva para o usuário se queimar, em função do índice ultravioleta do ambiente:
 
 :math:`t_i = \dfrac{66}{u}`
 

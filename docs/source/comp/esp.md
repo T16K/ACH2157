@@ -1,5 +1,9 @@
 # *ESP32*
 
+Para o projeto será utilizado o **ESP32**.
+
+## Introduzindo o *ESP32*
+
 [*ESP32*](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/) é um sistema em um chip que integra os seguintes recursos:
 
 - Wi-Fi (2.4 GHz band)
@@ -12,9 +16,11 @@ Alimentado por tecnologia de 40 nm, o *ESP32* fornece uma plataforma robusta e a
 
 O *Espressif* fornece recursos básicos de *hardware* e *software* para ajudar os desenvolvedores de aplicativos a realizar as ideias usando o *hardware* da série *ESP32*. A estrutura de desenvolvimento de *software* da *Espressif* destina-se ao desenvolvimento de aplicações de Internet das Coisas (IoT) com *Wi-Fi*, *Bluetooth*, gerenciamento de energia e vários outros recursos do sistema.
 
+## Introduzindo o *MicroPython*
+
 Para esse projeto foi utilizado o [*MicroPython*](https://docs.micropython.org/en/latest/esp32/quickref.html). Usar o *MicroPython* é uma ótima maneira de aproveitar ao máximo a placa *ESP32*. E vice-versa, o chip *ESP32* é uma ótima plataforma para usar o *MicroPython*. Esta seção guiará através da configuração do *MicroPython*, obtendo um prompt, usando WebREPL, conectando-se à rede e se comunicando com a Internet.
 
-## Como configurar o *MicroPython* na placa de desenvolvimento *ESP32* para executar aplicativos *Python*
+### Como configurar o *MicroPython* na placa de desenvolvimento *ESP32* para executar aplicativos *Python*
 
 Informações gerais sobre a [porta *ESP32*](https://docs.micropython.org/en/latest/esp32/general.html).
 
@@ -62,7 +68,11 @@ repl
 ```
 Para ver o *MicroPython*, pressionar `Ctrl-D` para iniciar uma reinicialização suave. Neste momento, tentar executar alguns códigos *Python* no `REPL`.
 
-## Como configurar o *MicroPython* [*WebREPL*](https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) na placa de desenvolvimento *ESP32*
+## Introduzindo o *WebREPL*
+
+WebREPL permite usar o prompt Python pelo WiFi, conectando-se através de um navegador.
+
+### Como configurar o *MicroPython* [*WebREPL*](https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) na placa de desenvolvimento *ESP32*
 
 Agora, será possível habilitar o *WebREPL* na placa *ESP32*. Para isso, digitar o seguinte código no prompt `REPL`:
 ```
