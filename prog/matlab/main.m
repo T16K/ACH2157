@@ -1,7 +1,7 @@
-readChId =  1901003;
-writeChId = 1975950;  % replace with your channel number
+readChId = 0000000;
+writeChId = 0000000;  % replace with your channel number
 
-writeKey = '8MLXFAVPCGU23EZJ'; % Replace with your channel write key
+writeKey = '0000000000000000'; % Replace with your channel write key
 
 % Read the field
 uv = thingSpeakRead(readChId,'Fields',1);
