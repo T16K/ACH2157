@@ -181,15 +181,21 @@ else {
 
 ## Utilização do site
 
+Como mencionado anteriormente, o site utilizado para o projeto é o ThingSpeak. Nele, serão enviadas as seguintes variáveis:
+- Índice Ultravioleta (ESP32);
+- Contagem de Tempo (ESP32);
+- Fator de Proteção Solar (Aplicativo);
+- Possibilidade de Remoção do Protetor Solar (Aplicativo);
 
+E devolvida a quantidade de tempo até a próxima reaplicação. Para isso foi feita a [pesquisa](https://github.com/T16K/ACH2157#pesquisa) para computar esse valor.
 
-
+Para analisar os dados, o **MATLAB Analysis** compila o código [`main.m`](src/main.m) e o **TimeControl** executa automaticamente a cada 5 minutos.
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#iot-analytics).
 
 ## Funcionamento do aplicativo
 
-Figura 2 - Tela principal do aplicativo em /img/app.jpg
+Figura 2 - Tela principal do aplicativo em /img/app.jpg:
 
 ![app](/img/app.jpg)
 
@@ -197,15 +203,15 @@ Para facilitar a comunicação entre o sistema e usuário, foi criada uma aplica
 
 O esquema a seguir mostra a criação de variáveis globais, a programação em blocos do comportamento das variáveis e as funções de retorno das informações do ThingSpeak para o aplicativo. 
 
-Figura 3 - Configuração das variáveis globais, arquivo-fonte da figura em /img/variaveis_globais.png
+Figura 3 - Configuração das variáveis globais, arquivo-fonte da figura em /img/variaveis_globais.png:
 
 ![variaveis_globais](/img/variaveis_globais.png)
 
-Figura 4 - Programação em blocos dos botões inseridos na tela, arquivo-fonte da figura em /img/send_data.png
+Figura 4 - Programação em blocos dos botões inseridos na tela, arquivo-fonte da figura em /img/send_data.png:
 
 ![send_data](/img/send_data.png)
 
-Figura 5 - Retorno das informações processadas no ThinkSpeak, arquivo-fonte da figura em /img/recieve_data.png
+Figura 5 - Retorno das informações processadas no ThinkSpeak, arquivo-fonte da figura em /img/recieve_data.png:
 
 ![recieve_data](/img/recieve_data.png)
 
@@ -213,15 +219,11 @@ Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software
 
 ## Pesquisa
 
-Para calcular a quantidade de tempo até a próxima reaplicação do protetor solar, foram necessárias 4 variáveis:
-- Índice Ultravioleta (ESP32);
-- Contagem de Tempo (ESP32);
-- Fator de Proteção Solar (Aplicativo);
-- Possibilidade de Remoção do Protetor Solar (Aplicativo);
+Para calcular a quantidade de tempo até a próxima reaplicação do protetor solar, foram utilizadas as variáveis descritas [aqui](https://github.com/T16K/ACH2157#utiliza%C3%A7%C3%A3o-do-site).
 
 Com isso, primeiro é necessário calcular uma função, relacionando o tempo médio para o usuário se queimar, e o ídice ultravioleta. Para isso foi utilizado a Figura 6:
 
-Figura 6 - Minutes to Skin Damage, arquivo-fonte da figura em /img/uv
+Figura 6 - Minutes to Skin Damage, arquivo-fonte da figura em /img/uv:
 
 ![uv](/img/uv)
 
@@ -232,6 +234,8 @@ Em que $t_i$ representa o tempo médio que leva para o usuário para se queimar 
 Sabendo disso, segundo a [SkinCabin](https://www.skincabin.com/guides/how-often-to-reapply-sunscreen/) é possível determinar o tempo até a próxima reaplicação do protetor solar da seguinte forma:
 $$t_f = \dfrac{t_i \cdot f}{u}$$
 Em que $t_f$, o tempo até a próxima reaplicação do protetor solar e $f$, o fator de proteção solar.
+
+Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/index.html#pesquisa).
 
 ## Referência
 

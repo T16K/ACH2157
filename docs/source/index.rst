@@ -83,7 +83,7 @@ Utilizando a figura **Minutes to Skin Damage** é possível estimar o tempo méd
 
 Com isso, a fórmula final para computar no MATLAB,
 
-:math `t_f = \dfrac{66 \cdot f}{u²}`
+:math: `t_f = \dfrac{66 \cdot f}{u²}`
 
 
 Melhorias
