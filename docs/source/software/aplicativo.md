@@ -1,6 +1,6 @@
 # Aplicativo
 
-Será utilizado o MIT App Inventor para fazer o aplicativo.
+Será utilizado o **MIT App Inventor** para fazer o aplicativo.
 
 ## Introduzindo o *MIT App Inventor*
 

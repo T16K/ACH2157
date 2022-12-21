@@ -1,6 +1,6 @@
 # *IoT analytics*
 
-Para coletar os dados, será usado o ThingSpeak.
+Para coletar os dados, será usado o **ThingSpeak**.
 
 ## Introduzindo o ThingSpeak
 

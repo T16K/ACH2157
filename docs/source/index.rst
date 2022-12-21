@@ -6,7 +6,7 @@ O que é isso?
 
 Essa é a documentação do que foi desenvolvido durante as aulas da **Disciplina: ACH2157 - Computação Física e Aplicações**: https://github.com/FNakano/CFA
 
-Além disso, será mostrado alguns complementos do projeto, disponível no [github](https://github.com/T16K/ACH2157). A idéia é propor o uso do aplicativo **PROTETOR SOLAR**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
+Além disso, será mostrado alguns complementos do projeto, disponível no https://github.com/T16K/ACH2157. A idéia é propor o uso do aplicativo **PROTETOR SOLAR**, como uma forma mais acessível do *UV Camera for Sunscreen Test*. O objetivo é que o usuário seja alertado pelo aplicativo, para repassar seu protetor solar conforme seu contexto.
 
 Inspiração
 ^^^^^^^^^^
@@ -68,7 +68,7 @@ Além disso, o índice ultravioleta também precisa ser considerado, mas como o 
 
 Por fim, existe a possibilidade de remoção não intencional por parte do usuário, como por exemplo a prática de exercício físico ou a presença de água, nesse caso, o tempo será reduzido pela metade, com um limite de 80 minutos.
 
-No programa, as variáveis serão computadas da seguinte forma:
+No MATLAB, as variáveis serão computadas da seguinte forma:
 
 :math:`t_f = \dfrac{t_i \cdot f}{u}`
 
@@ -77,20 +77,14 @@ No programa, as variáveis serão computadas da seguinte forma:
 - :math:`f`, o fator de proteção solar, do protetor solar do usuário;
 - :math:`u`, o índice ultravioleta do ambiente;
 
-Para calcular o [tempo médio]() que leva para o usuário se queimar, em função do índice ultravioleta do ambiente:
+Utilizando a figura **Minutes to Skin Damage** é possível estimar o tempo médio que leva para o usuário se queimar, em função do índice ultravioleta do ambiente:
 
 :math:`t_i = \dfrac{66}{u}`
 
-Referências
------------
+Com isso, a fórmula final para computar no MATLAB,
 
-https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/
-https://docs.micropython.org/en/latest/esp32/quickref.html
-https://datasheet.octopart.com/BH1750FVI-TR-Rohm-datasheet-25365051.pdf
-http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor
-https://www.researchgate.net/requests/attachment/107953839
-https://www.skincabin.com/guides/how-often-to-reapply-sunscreen/
-https://pubmed.ncbi.nlm.nih.gov/11712033/
+:math `t_f = \dfrac{66 \cdot f}{u²}`
+
 
 Melhorias
 ---------
@@ -100,7 +94,7 @@ O projeto foi desenvolvido durante o período do segundo semestre de 2022. Consi
 Sobre o ESP32:
 
 - Para que o programa funcione, é necessário que para cada reaplicação do protetor solar, o botão `boot` seja precionado no ESP32;
-- Não é ideal o rograma enviar a variável `number` para o ThingSpeak;
+- Não é ideal o programa enviar a variável `number` para o ThingSpeak;
 - Algumas vezes o ESP32 não consegue enviar os dados para o site (Error 401);
 - Implementar a opção do ESP32 funcionar como um Acess Point;
 - Implementar a opção de usar o código em Python;
@@ -121,5 +115,16 @@ Sobre a Pesquisa:
 
 - Não foi possível encontrar um número satisfatório de pesquisas sobre a reaplicação do protetor solar;
 - Não foi possível encontrar uma fórmula para descrever quando deveria ter a reaplicação do protetor solar;
-- Todo o cálculo foi baseado na interpretação das pesquisas que não tinham o objetivo de calcular o tempo de reaplicação do protetor solar;
-- Seria ideal fazer um experimento por conta própria para analisar o resultado com o esse objetivo;
+- Todo o cálculo foi baseado na interpretação das pesquisas que não tinham como objetivo calcular o tempo de reaplicação do protetor solar;
+- Seria ideal fazer um experimento por conta própria para analisar o resultado, com o esse objetivo;
+
+Referências
+-----------
+
+https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/
+https://docs.micropython.org/en/latest/esp32/quickref.html
+https://datasheet.octopart.com/BH1750FVI-TR-Rohm-datasheet-25365051.pdf
+http://wiki.sunfounder.cc/index.php?title=GYML8511_UV_Sensor
+https://www.researchgate.net/requests/attachment/107953839
+https://www.skincabin.com/guides/how-often-to-reapply-sunscreen/
+https://pubmed.ncbi.nlm.nih.gov/11712033/
