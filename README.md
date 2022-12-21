@@ -16,9 +16,9 @@ O projeto busca avisar o usuário, o momento mais adequado para a reaplicação 
 | :---: | :---: | :---: |
 | 1 | Placa de desenvolvimento ESP-WROOM-32 e cabo USB | https://www.amazon.com.br/gp/product/B09491Q4F6/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&psc=1 |
 | 1 | Sensor de Luz Ultravioleta UV ML8511 | https://www.institutodigital.com.br/produto/sensor-de-luz-ultravioleta-uv-ml8511/ |
-| X | Jumpers variados | --- |
-| {0,1} | protoboard | --- |
-| {0,1} | fonte de alimentação - powerbank | --- |
+| 3 | Jumpers Macho-Macho | --- |
+| 1 | Protoboard | --- |
+| 1 | Fonte de Alimentação (PowerBank) | --- |
 
 ### Conexões
 
@@ -31,6 +31,8 @@ O projeto busca avisar o usuário, o momento mais adequado para a reaplicação 
 ## Montagem do dispositivo físico
 
 Fazer as conexões listadas, configurar, transferir e executar [`main.ino`](/src/main.ino) no ESP32.
+
+Para transferir e executar o código, é interessante fazer uso do [Arduino IDE](https://www.arduino.cc/en/software).
 
 ## Arquitetura e organização
 
@@ -179,6 +181,10 @@ else {
 
 ## Utilização do site
 
+
+
+
+
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#iot-analytics).
 
 ## Funcionamento do aplicativo
@@ -191,21 +197,35 @@ Para facilitar a comunicação entre o sistema e usuário, foi criada uma aplica
 
 O esquema a seguir mostra a criação de variáveis globais, a programação em blocos do comportamento das variáveis e as funções de retorno das informações do ThingSpeak para o aplicativo. 
 
-Figura 3 - Configuração das variáveis globais em /img/variaveis_globais.png
+Figura 3 - Configuração das variáveis globais, arquivo-fonte da figura em /img/variaveis_globais.png
 
 ![variaveis_globais](/img/variaveis_globais.png)
 
-Figura 4 - Programação em blocos dos botões inseridos na tela /img/send_data.png
+Figura 4 - Programação em blocos dos botões inseridos na tela, arquivo-fonte da figura em /img/send_data.png
 
 ![send_data](/img/send_data.png)
 
-Figura 5 - Retorno das informações processadas no ThinkSpeak /img/recieve_data.png
+Figura 5 - Retorno das informações processadas no ThinkSpeak, arquivo-fonte da figura em /img/recieve_data.png
 
 ![recieve_data](/img/recieve_data.png)
 
 Para mais [informações](https://t16k-ach2157.readthedocs.io/en/latest/software/aplicativo.html#aplicativo).
 
 ## Pesquisa
+
+Para calcular a quantidade de tempo até a próxima reaplicação do protetor solar, foram necessárias 4 variáveis:
+- Índice Ultravioleta (ESP32);
+- Contagem de Tempo (ESP32);
+- Fator de Proteção Solar (Aplicativo);
+- Possibilidade de Remoção do Protetor Solar (Aplicativo);
+
+Com isso, primeiro é necessário calcular uma função, relacionando o tempo médio para o usuário se queimar, e o ídice ultravioleta. Para isso foi utilizado a Figura 6:
+
+Figura 6 - Minutes to Skin Damage, arquivo-fonte da figura em /img/uv
+
+![uv](/img/uv)
+
+Interpretando a figura, é possível estimar a função da seguinte forma: $ t_i = \dfrac{66}{u} $. Em que $ t_i $ representa o tempo médio que leva para o usuário para se queimar e $ u $ o índice ultravioleta do ambiente.
 
 ## Referência
 
