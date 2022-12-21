@@ -225,7 +225,13 @@ Figura 6 - Minutes to Skin Damage, arquivo-fonte da figura em /img/uv
 
 ![uv](/img/uv)
 
-Interpretando a figura, é possível estimar a função da seguinte forma: $$t_i = \dfrac{66}{u}$$. Em que $t_i$ representa o tempo médio que leva para o usuário para se queimar e $u$ o índice ultravioleta do ambiente.
+Interpretando a figura, é possível estimar a função da seguinte forma: 
+$$t_i = \dfrac{66}{u}$$ 
+Em que $t_i$ representa o tempo médio que leva para o usuário para se queimar e $u$ o índice ultravioleta do ambiente.
+
+Sabendo disso, segundo a [SkinCabin](https://www.skincabin.com/guides/how-often-to-reapply-sunscreen/) é possível determinar o tempo até a próxima reaplicação do protetor solar da seguinte forma:
+$$t_f = \dfrac{t_i \cdot f}{u}$$
+Em que $t_f$, o tempo até a próxima reaplicação do protetor solar e $f$, o fator de proteção solar.
 
 ## Referência
 
