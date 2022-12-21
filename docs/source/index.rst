@@ -100,14 +100,14 @@ O projeto foi desenvolvido durante o período do segundo semestre de 2022. Consi
 Sobre o ESP32:
 
 - Para que o programa funcione, é necessário que para cada reaplicação do protetor solar, o botão `boot` seja precionado no ESP32;
-- Não é ideal o [programa]() enviar a variável `number` para o ThingSpeak;
+- Não é ideal o rograma enviar a variável `number` para o ThingSpeak;
 - Algumas vezes o ESP32 não consegue enviar os dados para o site (Error 401);
 - Implementar a opção do ESP32 funcionar como um Acess Point;
 - Implementar a opção de usar o código em Python;
 
 Sobre o ThingSpeak (MATLAB):
 
-- O [programa]() é incapaz de guardar o valor da variável `remain_percentage` para calcular com uma precisão maior o desgaste do protetor solar;
+- O programa é incapaz de guardar o valor da variável `remain_percentage` para calcular com uma precisão maior o desgaste do protetor solar;
 - Não foi encontrado uma forma mais eficiente de calcular o tempo desde a primeira aplicação;
 - A resposta deveria conter a porcentagem de protetor solar restante, o horário de reaplicação em HH:MM, e a quantidade de tempo restante; 
 

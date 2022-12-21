@@ -42,7 +42,7 @@ Para analisar os dados do **Write-Channel** e escrever no **Read-Channel**, foi 
 
 ### MATLAB Analysis
 
-```C
+```m
 readChId = 0000000;
 writeChId = 0000000;  % replace with your channel number
 

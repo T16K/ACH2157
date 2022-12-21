@@ -20,13 +20,13 @@ Para o projeto foram utilizadas duas variáveis de saída (*Switch1* e *ListPick
 
 Nesta parte, o MIT App Inventor capacita as aplicações desenvolvidas.
 
-Então primeiro, foram declaradas duas variáveis (*Value* e *read_link*), a primeira é a mesma utilizada na seção **Designer**, ela recebe o valor do site *ThingSpeak* e o mostra na interface do usuário. A segunda, será o link que possibilita a leitura desse valor pelo ThingSpeak, utilizando o [API Requests](). 
+Então primeiro, foram declaradas duas variáveis (*Value* e *read_link*), a primeira é a mesma utilizada na seção **Designer**, ela recebe o valor do site *ThingSpeak* e o mostra na interface do usuário. A segunda, será o link que possibilita a leitura desse valor pelo ThingSpeak, utilizando o [API Requests](https://t16k-ach2157.readthedocs.io/en/latest/software/iot.html#api-keys). 
 
 Além disso, foram criadas duas funções (*readthingspeak* e *Alarm*), a primeira para instruir como o *read_link* será utilizado, e a segunda para escrever na variável *Alarm* a notificação para reaplicar o protetor solar.
 
 ![mit1](../../../img/mit1.png)
 
-Com isso, a próxima imagem descreve como escrever o valor lido no ThingSpeak na variável *Value*. Note que é necessário declarar o *look up in pair key*, para mais informações é interessante olhar a seção do [API Request]().
+Com isso, a próxima imagem descreve como escrever o valor lido no ThingSpeak na variável *Value*. Note que é necessário declarar o *look up in pair key* usando o `field`.
 
 ![mit4](../../../img/mit4.png)
 
