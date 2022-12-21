@@ -1,9 +1,3 @@
-<div align="center">
-
-# **INCOMPLETO**
-
-</div>
-
 # Projeto Protetor Solar
 
 ## Descrição
